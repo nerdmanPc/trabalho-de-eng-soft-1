@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.target=Professor
+comment0.text=\r\n\ Escreva\ a\ descri\u00E7\u00E3o\ da\ classe\ AlunoGrad\ aqui.\r\n\ \r\n\ @author\ (seu\ nome)\ \r\n\ @version\ (n\u00FAmero\ de\ vers\u00E3o\ ou\ data)\r\n
+comment1.params=codigo\ nome\ diasdeemprestimo\ maximodelivros
+comment1.target=Professor(int,\ java.lang.String,\ int,\ int)
+comment1.text=\r\n\ COnstrutor\ para\ objetos\ da\ classe\ AlunoGrad\r\n
+comment2.params=in
+comment2.target=void\ setCodigo(int)
+comment3.params=str
+comment3.target=void\ setNome(java.lang.String)
+comment4.params=in
+comment4.target=void\ setDiasdeemprestimo(int)
+comment5.params=in
+comment5.target=void\ setMaximodelivros(int)
+comment6.params=in
+comment6.target=int\ getCodigo(int)
+comment7.params=
+comment7.target=java.lang.String\ getNome()
+comment8.params=
+comment8.target=int\ getDiasdeemprestimo()
+comment9.params=
+comment9.target=int\ getMaximodelivros()
+numComments=10

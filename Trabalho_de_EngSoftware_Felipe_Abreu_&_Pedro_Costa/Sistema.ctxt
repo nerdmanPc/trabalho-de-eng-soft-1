@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=Sistema
+comment0.text=\r\n\ Escreva\ a\ descri\u00E7\u00E3o\ da\ classe\ Sistema\ aqui.\r\n\ \r\n\ @author\ (seu\ nome)\ \r\n\ @version\ (n\u00FAmero\ de\ vers\u00E3o\ ou\ data)\r\n
+comment1.params=
+comment1.target=Sistema()
+comment1.text=\r\n\ COnstrutor\ para\ objetos\ da\ classe\ Sistema\r\n
+comment2.params=id_usuario\ id_livro
+comment2.target=void\ fazeEmprestimo(int,\ int)
+comment3.params=id_usuario\ id_livro
+comment3.target=void\ devolverLivro(int,\ int)
+comment4.params=id_usuario\ id_livro
+comment4.target=void\ reservarLivro(int,\ int)
+comment5.params=id_professor\ id_livro
+comment5.target=void\ assinarLivro(int,\ int)
+comment6.params=id_livro
+comment6.target=void\ consultarLivro(int)
+comment7.params=id_usuario
+comment7.target=void\ consultarUsuario(int)
+comment8.params=id_livro
+comment8.target=void\ consultarAssinatura(int)
+numComments=9

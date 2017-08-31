@@ -11,53 +11,50 @@ public class Livro
     private int codigo;
     private String titulo;
     private String editora;
-    private String autores;
+    private String[] autores;
     private int edicao;
-    private int anodepublicacao;
+    private int ano_de_publicacao;
 
-    /**
-     * COnstrutor para objetos da classe Livro
-     */
-    public Livro(int codigo,String titulo,String editora,String autores,int edicao, int anodepublicao)
-    {
-       this.codigo=codigo;
-       this.titulo=titulo;
-       this.editora=editora;
-       this.autores=autores;
-       this.edicao=edicao;
-       this.anodepublicacao=anodepublicao;
+    public Livro(int codigo,String titulo,String editora,String[] autores,int edicao, int ano_de_publicacao){
+       this.codigo = codigo;
+       this.titulo = titulo;
+       this.editora = editora;
+       this.autores = autores;
+       this.edicao = edicao;
+       this.ano_de_publicacao = ano_de_publicacao;
     }
 
     public int getCodigo(){
-    return this.codigo;
-    
+        return this.codigo;
     }
-     public int getEdicao(){
-        return this.edicao;
-        
-        }
-     public int getAnodepublicacao(){
-        
-        return this.anodepublicacao;
-        }
+    
+    public int getEdicao(){
+       return this.edicao;
+    }
+    
+    public int getano_de_publicacao(){
+        return this.ano_de_publicacao;
+    }
     
     public String getTitulo(){
-    return this.titulo;
+        return this.titulo;
     }
+    
     public String getEditora(){
-    return this.editora;
+        return this.editora;
     }
-    public String getAutores(){
-    return this.autores;
+    
+    public String[] getAutores(){
+        return this.autores;
     }
     
     
     public void setCodigo(int in){this.codigo=in;}
     public void setEdicao(int in){this.edicao=in;}
-    public void setAnodepublicacao(int in){this.anodepublicacao=in;}
+    public void setano_de_publicacao(int in){this.ano_de_publicacao=in;}
     public void setTitulo(String str){this.titulo=str;}
     public void setgetEditora(String str){this.editora=str;}
-    public void setAutores(String str){this.autores=str;}
+    public void setAutores(String[] str){this.autores=str;}
     
     
     

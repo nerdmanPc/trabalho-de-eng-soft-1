@@ -1,7 +1,9 @@
 #BlueJ class context
 comment0.target=Usuario
+comment0.text=\r\n\ Escreva\ a\ descri\u00E7\u00E3o\ da\ classe\ Usuario\ aqui.\r\n\ \r\n\ @author\ (seu\ nome)\ \r\n\ @version\ (n\u00FAmero\ de\ vers\u00E3o\ ou\ data)\r\n
 comment1.params=codigo\ nome\ diasdeemprestimo\ maximodelivros
 comment1.target=Usuario(int,\ java.lang.String,\ int,\ int)
+comment1.text=\r\n\ COnstrutor\ para\ objetos\ da\ classe\ Usuario\r\n
 comment2.params=in
 comment2.target=void\ setCodigo(int)
 comment3.params=str

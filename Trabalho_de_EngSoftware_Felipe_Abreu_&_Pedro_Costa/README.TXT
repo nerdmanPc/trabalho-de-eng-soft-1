@@ -1,3 +1,7 @@
+Projeto gerado pelo BlueJ
+
+
+
 ----------------------------------------------------------------------------
 Este é o arquivo README do projeto. Você deve descrever aqui o seu projeto.
 Informe ao usuário (alguém que não sabe nada sobre este projeto!) tudo que

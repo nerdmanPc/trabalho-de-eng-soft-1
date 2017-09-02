@@ -1,36 +1,21 @@
-import java.io.*;
+import java.util.HashMap;
 import java.util.Scanner;
-import java.util.ArrayList;
+
+//Invoker
 
 
-
-
-
-
-//Receiver
-
-
-
-
-
-
-
-public class Sistema{
+public class Sistema
+{
+    private static Sistema instancia;
     
-    private static Sistema instancia = null;
-    private ArrayList<Usuario> usuarios;
-    private ArrayList<Livro> livros;
+    private HashMap<String, Comando> comandos;  //falta ver como funciona exatamente o HashMap
     
-    public Sistema get(){
-        if(instancia != null){
-            instancia = new Sistema();
-        }
-        return instancia;
-    }
+    private Sistema(){}
     
-    /**Melhor colocar na classe Menu um método idêntico a esse que epera e lê o próximo comando.*/
-    private Sistema(){ 
-        System.out.println("Digite o comando:");
+    public void initComandos(){}
+    
+    public void esperarComando(){
+      System.out.println("Digite o comando:");
         String line = "";
         String line2 ="";
         //line = input.readString();
@@ -74,7 +59,25 @@ public class Sistema{
                  consultarAssinatura(usuario);            
             }
         }
+    
+    
+    
+    
+    
+    
+    
     }
+    
+    public Sistema get()
+    {
+        if(instancia == null){
+            instancia = new Sistema();
+        }
+        return instancia;
+    }
+    
+    
+    
     public void fazeEmprestimo(int id_usuario, int id_livro){}
     public void devolverLivro(int id_usuario, int id_livro){}
     public void reservarLivro(int id_usuario, int id_livro){}
@@ -82,5 +85,17 @@ public class Sistema{
     public void consultarLivro(int id_livro){}
     public void consultarUsuario(int id_usuario){}
     public void consultarAssinatura(int id_livro){}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 }

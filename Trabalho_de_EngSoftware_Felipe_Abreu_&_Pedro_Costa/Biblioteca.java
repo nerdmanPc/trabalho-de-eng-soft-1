@@ -1,21 +1,43 @@
-public class Biblioteca {
-   private static Biblioteca fachadaSingleton = null;
-   // repare no construtor privado, somente métodos dessa classe pode utiliza-lo &#40;no caso getInstance&#40;&#41;
-   private Biblioteca() {
-      //algum código aqui
-    }   
-   // retorna a única instancia
-   public static Biblioteca getInstance() {
-      if (fachadaSingleton == null) {
-         fachadaSingleton = new Biblioteca();
+import java.io.*;
+import java.util.Scanner;
+import java.util.ArrayList;
+
+
+
+
+
+
+//Receiver
+
+
+
+
+
+
+
+public class Biblioteca{
+    
+    private static Biblioteca instancia = null;
+    private ArrayList<Usuario> usuarios;
+    private ArrayList<Livro> livros;
+    
+    public Biblioteca get(){
+        if(instancia != null){
+            instancia = new Biblioteca();
         }
-     return fachadaSingleton;
+        return instancia;
     }
-    //métodos da fachada
-   public void fazerEmprestimo(){
-      //algum codigo aqui
+    
+    /**Melhor colocar na classe Menu um método idêntico a esse que epera e lê o próximo comando.*/
+    private Biblioteca(){ 
+      
     }
-   public void algumMetodoDaFachada2(){
-      //algum codigo aqui
-    }
+    public void fazeEmprestimo(int id_usuario, int id_livro){}
+    public void devolverLivro(int id_usuario, int id_livro){}
+    public void reservarLivro(int id_usuario, int id_livro){}
+    public void assinarLivro(int id_professor, int id_livro){}
+    public void consultarLivro(int id_livro){}
+    public void consultarUsuario(int id_usuario){}
+    public void consultarAssinatura(int id_livro){}
+    
 }

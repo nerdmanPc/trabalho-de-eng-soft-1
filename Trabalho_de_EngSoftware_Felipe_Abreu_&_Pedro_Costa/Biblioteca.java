@@ -2,18 +2,7 @@ import java.io.*;
 import java.util.Scanner;
 import java.util.ArrayList;
 
-
-
-
-
-
 //Receiver
-
-
-
-
-
-
 
 public class Biblioteca{
     

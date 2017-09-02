@@ -28,7 +28,14 @@ public class Sistema
         System.out.println("Digite o comando:");
         
         Scanner entrada = new Scanner(System.in);
+        String comando = entrada.next();
+        int[] argumentos = new int[2]; //Tem que ignorar o segundo argumento.
+        argumentos[0] = entrada.nextInt();
+        argumentos[1] = entrada.nextInt();
         
+        comandos.get(comando).executar(argumentos);
+        
+        /*
         String line = "";
         String line2 ="";
         //line = input.readString();
@@ -71,7 +78,7 @@ public class Sistema
                  int usuario = input.nextInt();
                  consultarAssinatura(usuario);            
             }
-        }
+        }*/
     }
     
     

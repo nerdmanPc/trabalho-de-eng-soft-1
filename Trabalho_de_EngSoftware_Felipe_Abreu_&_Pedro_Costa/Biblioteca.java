@@ -21,7 +21,7 @@ public class Biblioteca{
     }
     
     public static Biblioteca get(){
-        if(instancia != null){
+        if(instancia == null){
             instancia = new Biblioteca();
         }
         return instancia;

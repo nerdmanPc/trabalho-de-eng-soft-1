@@ -74,14 +74,6 @@ public class Sistema
         }
     }
     
-    public void fazeEmprestimo(int id_usuario, int id_livro){}
-    public void devolverLivro(int id_usuario, int id_livro){}
-    public void reservarLivro(int id_usuario, int id_livro){}
-    public void assinarLivro(int id_professor, int id_livro){}
-    public void consultarLivro(int id_livro){}
-    public void consultarUsuario(int id_usuario){}
-    public void consultarAssinatura(int id_livro){}
-    
     
     
     

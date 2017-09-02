@@ -22,7 +22,7 @@ public class Usuario
     
     public void setMaximodelivros(int in){this.maximodelivros=in;}
     
-    public int getCodigo(int in){return this.codigo;}
+    public int getCodigo(){return this.codigo;}
     
     public String getNome(){return this.nome;}
     

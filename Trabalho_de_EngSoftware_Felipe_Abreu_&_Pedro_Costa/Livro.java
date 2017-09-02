@@ -14,6 +14,9 @@ public class Livro
     private String[] autores;
     private int edicao;
     private int ano_de_publicacao;
+    private int codigoexemplar;
+    private boolean disponibilidade;
+    private int usuario_que_pegou_o_livro;
 
     public Livro(int codigo,String titulo,String editora,String[] autores,int edicao, int ano_de_publicacao){
        this.codigo = codigo;
@@ -22,8 +25,32 @@ public class Livro
        this.autores = autores;
        this.edicao = edicao;
        this.ano_de_publicacao = ano_de_publicacao;
+       codigoexemplar++;
     }
 
+    public void setDisponibilidade(boolean simnao){
+    
+    this.disponibilidade=simnao;
+    }
+    
+     public boolean getDisponibilidade(){
+    
+    return this.disponibilidade;
+    }
+    
+    
+      public void setUsuarioEmp(int usr){
+    
+    this.usuario_que_pegou_o_livro=usr;
+    }
+    
+     public int getUsuarioEmp(){
+    
+    return this.usuario_que_pegou_o_livro;
+    }
+    
+    
+    
     public int getCodigo(){
         return this.codigo;
     }

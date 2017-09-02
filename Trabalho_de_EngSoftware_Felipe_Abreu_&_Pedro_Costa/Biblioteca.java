@@ -65,7 +65,19 @@ public class Biblioteca{
         }
     
     }
-    public void reservarLivro(int id_usuario, int id_livro){}
+    public void reservarLivro(int id_usuario, int id_livro){
+    
+      for (Livro liv : livros) {
+            if(liv.getCodigo()==id_livro){
+                if(liv.getDisponibilidade()==true){
+            liv.setDisponibilidade(false);
+            liv.setUsuarioEmp(id_usuario);
+        }
+            }
+        }
+    
+    
+    }
     public void assinarLivro(int id_professor, int id_livro){}
     public void consultarLivro(int id_livro){
        for (Livro liv : livros) {
@@ -86,6 +98,14 @@ public class Biblioteca{
         }
     
     }
-    public void consultarAssinatura(int id_livro){}
+    public void consultarAssinatura(int id_usuario){
+         for (Usuario user : usuarios) {
+            if(user.getCodigo()==id_usuario){
+            
+            }
+        }
+    
+    
+    }
     
 }

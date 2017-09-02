@@ -5,9 +5,8 @@
  * @author (seu nome) 
  * @version (número de versão ou data)
  */
-public class Livro
+public class Livro extends Subject
 {
-    // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
     private int codigo;
     private String titulo;
     private String editora;
@@ -29,8 +28,7 @@ public class Livro
     }
 
     public void setDisponibilidade(boolean simnao){
-    
-    this.disponibilidade=simnao;
+        this.disponibilidade = simnao;
     }
     
      public boolean getDisponibilidade(){

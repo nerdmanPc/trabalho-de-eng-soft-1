@@ -4,7 +4,17 @@ public abstract class Subject
 {
     private ArrayList<Observer> observers;
     
-    public abstract void registrarObserver(Observer o);
-    public abstract void removerObserver(Observer o);
-    public abstract void notificarObservers(); //pode ser implementado aqui, também
+    public void registrarObserver(Observer o){
+        observers.add(o);
+    }
+    
+    public void removerObserver(Observer o){
+        observers.remove(o);
+    }
+    
+    public void notificarObservers(){
+        for (Observer o: observers){
+            o.atualizar(this);
+        }
+    }
 }

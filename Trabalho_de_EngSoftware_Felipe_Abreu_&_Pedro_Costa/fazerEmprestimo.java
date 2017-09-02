@@ -5,7 +5,7 @@
  * @author (seu nome) 
  * @version (número de versão ou data)
  */
-public class fazerEmprestimo
+public abstract class fazerEmprestimo implements Comando
 {
     // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
     private int x;

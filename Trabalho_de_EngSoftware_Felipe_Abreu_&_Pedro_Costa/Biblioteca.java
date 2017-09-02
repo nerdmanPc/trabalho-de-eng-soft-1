@@ -12,7 +12,7 @@ public class Biblioteca {
      return fachadaSingleton;
     }
     //métodos da fachada
-   public void algumMetodoDaFachada1(){
+   public void fazerEmprestimo(){
       //algum codigo aqui
     }
    public void algumMetodoDaFachada2(){

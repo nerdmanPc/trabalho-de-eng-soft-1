@@ -5,7 +5,7 @@
  * @author (seu nome) 
  * @version (número de versão ou data)
  */
-public class consultarLivro
+public abstract class consultarLivro  implements Comando
 {
     // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
     private int x;

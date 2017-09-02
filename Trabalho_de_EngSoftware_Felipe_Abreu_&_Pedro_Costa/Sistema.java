@@ -3,19 +3,32 @@ import java.util.Scanner;
 
 //Invoker
 
-
 public class Sistema
 {
-    private static Sistema instancia;
+    private static Sistema instancia = null;
     
     private HashMap<String, Comando> comandos;  //falta ver como funciona exatamente o HashMap
     
-    private Sistema(){}
+    /** O construtor deve preencher o HashMap com os comandos correpondentes **/
+    private Sistema(){
+        comandos = new HashMap<String, Comando>();
+        comandos.put("emp", new ComandoFazerEmprestimo());
+        comandos.put("dev", new ComandoDevolverLivro());
+        /** ... **/
+    } 
     
-    public static void initComandos(){}
-    
+    public static Sistema get(){
+        if(instancia == null){
+            instancia = new Sistema();
+        }
+        return instancia;
+    }
+        
     public void esperarComando(){
-      System.out.println("Digite o comando:");
+        System.out.println("Digite o comando:");
+        
+        Scanner entrada = new Scanner(System.in);
+        
         String line = "";
         String line2 ="";
         //line = input.readString();
@@ -59,24 +72,7 @@ public class Sistema
                  consultarAssinatura(usuario);            
             }
         }
-    
-    
-    
-    
-    
-    
-    
     }
-    
-    public static Sistema get()
-    {
-        if(instancia == null){
-            instancia = new Sistema();
-        }
-        return instancia;
-    }
-    
-    
     
     public void fazeEmprestimo(int id_usuario, int id_livro){}
     public void devolverLivro(int id_usuario, int id_livro){}

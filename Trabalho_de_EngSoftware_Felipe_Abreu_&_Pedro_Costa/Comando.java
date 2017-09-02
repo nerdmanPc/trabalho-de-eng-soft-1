@@ -1,4 +1,4 @@
 public interface Comando
 {
-    public void executar();
+    public void executar(int[] argumentos);
 }

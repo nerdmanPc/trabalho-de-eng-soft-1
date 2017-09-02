@@ -12,7 +12,7 @@ public class Sistema
     
     private Sistema(){}
     
-    public void initComandos(){}
+    public static void initComandos(){}
     
     public void esperarComando(){
       System.out.println("Digite o comando:");
@@ -68,7 +68,7 @@ public class Sistema
     
     }
     
-    public Sistema get()
+    public static Sistema get()
     {
         if(instancia == null){
             instancia = new Sistema();

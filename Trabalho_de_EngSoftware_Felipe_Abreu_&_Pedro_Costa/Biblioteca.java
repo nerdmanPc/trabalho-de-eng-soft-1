@@ -28,6 +28,11 @@ public class Biblioteca{
         return instancia;
     }
     
+    public static void main(String[] args){ //Estava faltando o Entry Point XD
+        Sistema.get().initComandos();
+        Sistema.get().esperarComando();
+    }
+    
     /**Melhor colocar na classe Menu um método idêntico a esse que epera e lê o próximo comando.*/
     private Biblioteca(){ 
       

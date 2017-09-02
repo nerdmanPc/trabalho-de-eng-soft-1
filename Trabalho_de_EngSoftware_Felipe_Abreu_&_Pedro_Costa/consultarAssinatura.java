@@ -19,15 +19,8 @@ public abstract class consultarAssinatura  implements Comando
         x = 0;
     }
 
-    /**
-     * Exemplo de método - substitua este comentário pelo seu próprio
-     * 
-     * @param  y   exemplo de um parâmetro de método
-     * @return     a soma de x com y 
-     */
-    public int sampleMethod(int y)
-    {
-        // ponha seu código aqui
-        return x + y;
+  public void executar(){
+    
+    
     }
 }

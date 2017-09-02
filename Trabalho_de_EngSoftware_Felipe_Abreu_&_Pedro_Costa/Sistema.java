@@ -1,12 +1,20 @@
 import java.io.*;
 import java.util.Scanner;
 import java.util.ArrayList;
-/**
- * Escreva a descrição da classe Sistema aqui.
- * 
- * @author (seu nome) 
- * @version (número de versão ou data)
- */
+
+
+
+
+
+
+//Receiver
+
+
+
+
+
+
+
 public class Sistema{
     
     private static Sistema instancia = null;

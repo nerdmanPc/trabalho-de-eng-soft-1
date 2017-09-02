@@ -25,9 +25,8 @@ public abstract class devolverLivro  implements Comando
      * @param  y   exemplo de um parâmetro de método
      * @return     a soma de x com y 
      */
-    public int sampleMethod(int y)
-    {
-        // ponha seu código aqui
-        return x + y;
+  public void executar(){
+    
+    
     }
 }

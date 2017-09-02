@@ -1,10 +1,5 @@
+import java.util.ArrayList;
 
-/**
- * Escreva a descrição da classe Livro aqui.
- * 
- * @author (seu nome) 
- * @version (número de versão ou data)
- */
 public class Livro extends Subject
 {
     private int codigo;
@@ -13,9 +8,11 @@ public class Livro extends Subject
     private String[] autores;
     private int edicao;
     private int ano_de_publicacao;
-    private int codigoexemplar;
-    private boolean disponibilidade;
-    private int usuario_que_pegou_o_livro;
+    private ArrayList<Exemplar> exemplares;
+    
+    //private int codigoexemplar;
+    //private boolean disponibilidade;
+    //private int usuario_que_pegou_o_livro;
 
     public Livro(int codigo,String titulo,String editora,String[] autores,int edicao, int ano_de_publicacao){
        this.codigo = codigo;
@@ -24,30 +21,12 @@ public class Livro extends Subject
        this.autores = autores;
        this.edicao = edicao;
        this.ano_de_publicacao = ano_de_publicacao;
-       codigoexemplar++;
-    }
-
-    public void setDisponibilidade(boolean simnao){
-        this.disponibilidade = simnao;
+       this.exemplares = new ArrayList<Exemplar>();
     }
     
-     public boolean getDisponibilidade(){
-    
-    return this.disponibilidade;
+    public void novoExemplar(int codigo){
+        exemplares.add(new Exemplar(codigo));
     }
-    
-    
-      public void setUsuarioEmp(int usr){
-    
-    this.usuario_que_pegou_o_livro=usr;
-    }
-    
-     public int getUsuarioEmp(){
-    
-    return this.usuario_que_pegou_o_livro;
-    }
-    
-    
     
     public int getCodigo(){
         return this.codigo;
@@ -57,7 +36,7 @@ public class Livro extends Subject
        return this.edicao;
     }
     
-    public int getano_de_publicacao(){
+    public int getAnoDePublicacao(){
         return this.ano_de_publicacao;
     }
     
@@ -74,12 +53,12 @@ public class Livro extends Subject
     }
     
     
-    public void setCodigo(int in){this.codigo=in;}
-    public void setEdicao(int in){this.edicao=in;}
-    public void setano_de_publicacao(int in){this.ano_de_publicacao=in;}
-    public void setTitulo(String str){this.titulo=str;}
-    public void setgetEditora(String str){this.editora=str;}
-    public void setAutores(String[] str){this.autores=str;}
+    public void setCodigo(int codigo){this.codigo=codigo;}
+    public void setEdicao(int edicao){this.edicao=edicao;}
+    public void setAnoDePublicacao(int ano){this.ano_de_publicacao=ano;}
+    public void setTitulo(String titulo){this.titulo=titulo;}
+    public void setgetEditora(String editora){this.editora=editora;}
+    public void setAutores(String[] autores){this.autores=autores;}
     
     
     

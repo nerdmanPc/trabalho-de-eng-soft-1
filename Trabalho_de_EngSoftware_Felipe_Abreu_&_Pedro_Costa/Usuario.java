@@ -5,9 +5,9 @@ public abstract class Usuario
 {
     private int codigo;
     private String nome;
-    private HashMap<Livro, Reserva> reservas;
-    private HashMap<Livro, Emprestimo> emprestimos_correntes;
-    private HashMap<Livro, Emprestimo> emprestimos_historico;
+    private HashMap<Livro,Reserva> reservas;
+    private HashMap<Livro,Emprestimo> emprestimos_correntes;
+    private HashMap<Livro,Emprestimo> emprestimos_historico;
     //private EmprestimoBehavior behavior;
     
     public Usuario(int codigo, String nome)
@@ -34,11 +34,22 @@ public abstract class Usuario
         reservas.put(reserva.getLivro(),reserva);
     }
     
-    //override
-    public String toString(){
-        StringBuilder retorno = new StringBuilder(nome + "\n");
+    public String consulta(){
+        StringBuilder retorno = new StringBuilder(nome + "\n ");
         
+        for (Livro key: emprestimos_correntes.keySet()){
+            retorno.append(emprestimos_correntes.get(key).consulta());
+        }
+        
+        for (Livro key: emprestimos_historico.keySet()){
+            retorno.append(emprestimos_historico.get(key).consulta());
+        }
+        
+        for (Livro key: reservas.keySet()){
+            retorno.append(reservas.get(key).consulta());
+        }
         /** Implementar o método de consulta aqui. **/
+        return retorno;
     }
     
     public void setCodigo(int in){this.codigo=in;}

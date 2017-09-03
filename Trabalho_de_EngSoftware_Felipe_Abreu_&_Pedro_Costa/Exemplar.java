@@ -9,5 +9,4 @@ public class Exemplar
         this.disponivel = true;
         this.emprestimo_corrente = null;
     }
-    
 }

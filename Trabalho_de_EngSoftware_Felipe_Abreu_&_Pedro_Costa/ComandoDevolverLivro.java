@@ -1,6 +1,9 @@
-public class ComandoDevolverLivro  implements Comando
+public class ComandoDevolverLivro implements Comando
 {
-    public void executar(int[] argumentos){
-        Biblioteca.get().devolverLivro(argumentos[0], argumentos[1]);
+    public void executar(){
+        int usuario = Sistema.get().getEntrada().nextInt();
+        int livro = Sistema.get().getEntrada().nextInt();
+        
+        Biblioteca.get().devolverLivro(usuario, livro);
     }
 }

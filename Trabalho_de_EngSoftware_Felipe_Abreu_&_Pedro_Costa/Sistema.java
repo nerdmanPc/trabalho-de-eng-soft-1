@@ -7,11 +7,15 @@ public class Sistema
 {
     private static Sistema instancia = null;
     
-    private HashMap<String, Comando> comandos;  //falta ver como funciona exatamente o HashMap
+    private HashMap<String, Comando> comandos;
+    private Scanner entrada;
     
     /** O construtor deve preencher o HashMap com os comandos correpondentes **/
     private Sistema(){
+        entrada = new Scanner(System.in);
         comandos = new HashMap<String, Comando>();
+        
+        /** Inicializa comandos **/
         comandos.put("emp", new ComandoFazerEmprestimo());
         comandos.put("dev", new ComandoDevolverLivro());
         /** ... **/
@@ -23,17 +27,16 @@ public class Sistema
         }
         return instancia;
     }
+    
+    public Scanner getEntrada(){
+        return this.entrada;
+    }
         
     public void esperarComando(){
         System.out.println("Digite o comando:");
         
-        Scanner entrada = new Scanner(System.in);
         String comando = entrada.next();
-        int[] argumentos = new int[2]; //Tem que ignorar o segundo argumento.
-        argumentos[0] = entrada.nextInt();
-        argumentos[1] = entrada.nextInt();
-        
-        comandos.get(comando).executar(argumentos);
+        comandos.get(comando).executar();
         
         /*
         String line = "";

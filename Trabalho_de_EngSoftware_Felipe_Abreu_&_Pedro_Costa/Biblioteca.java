@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 //Receiver
 
-public class Biblioteca{
-    
+public class Biblioteca
+{
     private static Biblioteca instancia = null;
     
     private ArrayList<Usuario> usuarios;
@@ -89,8 +89,7 @@ public class Biblioteca{
     public void consultarUsuario(int id_usuario){
             for (Usuario user : usuarios) {
             if(user.getCodigo()==id_usuario){
-            System.out.println(user.getNome() + " "+ user.getCodigo() + " " + user.getDiasdeemprestimo());
-            
+                System.out.println(user.getNome() + " "+ user.getCodigo() + " " + user.getDiasdeemprestimo());
             }
         }
     
@@ -101,8 +100,6 @@ public class Biblioteca{
             
             }
         }
-    
-    
     }
     
 }

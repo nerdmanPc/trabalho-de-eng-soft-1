@@ -2,8 +2,7 @@ public class Usuario
 {
     private int codigo;
     private String nome;
-    private int diasdeemprestimo;
-    private int maximodelivros;
+    private EmprestimoBehavior bahavior;
 
     public Usuario(int codigo, String nome,int diasdeemprestimo, int maximodelivros)
     {

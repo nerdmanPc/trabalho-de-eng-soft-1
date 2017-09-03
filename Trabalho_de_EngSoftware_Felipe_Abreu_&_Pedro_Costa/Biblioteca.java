@@ -2,7 +2,8 @@ import java.io.*;
 import java.util.Scanner;
 import java.util.ArrayList;
 
-//Receiver
+
+//abc
 
 public class Biblioteca
 {
@@ -10,6 +11,7 @@ public class Biblioteca
     
     private ArrayList<Usuario> usuarios;
     private ArrayList<Livro> livros;
+      
     
     public static void main(String[] args){
         Sistema.get().esperarComando();
@@ -28,8 +30,18 @@ public class Biblioteca
     }
     
     public void novoLivro(int codigo,String titulo,String editora,String[] autores,int edicao, int ano_de_publicacao){
+        boolean sai=false;
+           for (Livro liv : livros) {
+        if(liv.getCodigo()==codigo){
+        liv.novoExemplar();
+        sai=true;
+            }
+            
+        }
+        if(sai==false){
         Livro liv = new Livro(codigo,titulo,editora,autores,edicao,ano_de_publicacao);
         livros.add(liv);
+    }
     
     }
     
@@ -42,23 +54,36 @@ public class Biblioteca
     public void fazerEmprestimo(int id_usuario, int id_livro){
        for (Livro liv : livros) {
             if(liv.getCodigo()==id_livro){
-                if(liv.getDisponibilidade()==true){
-                    liv.setDisponibilidade(false);
-                    liv.setUsuarioEmp(id_usuario);
-                }
+                ArrayList<Exemplar> exemp = liv.getExemplares();
+                for(Exemplar exe: exemp){
+                if(exe.getDisponibilidade()==true){
+                    if(exe.VerSeTaVazia()==true){
+            exe.setDisponibilidade(false);
+            exe.setUsuarioEmp(id_usuario);
+        }else if (exe.getTemUsuarioNaReserva()==id_usuario){
+        exe.setDisponibilidade(false);
+            exe.setUsuarioEmp(id_usuario);
+            exe.RemoveUserDaReserva();
+        }
+        }
+    }
             }
-       }
+        }
+    
     }
     public void devolverLivro(int id_usuario, int id_livro){
       for (Livro liv : livros) {
             if(liv.getCodigo()==id_livro){
-                if(liv.getUsuarioEmp()==id_usuario){
-                if(liv.getDisponibilidade()==false){
-            liv.setDisponibilidade(true);
-            liv.setUsuarioEmp(0);
+                ArrayList<Exemplar> exemp = liv.getExemplares();
+                for(Exemplar exe: exemp){
+                if(exe.getDisponibilidade()==false){
+                    if(exe.getUsuarioEmp()==id_usuario){
+            exe.setDisponibilidade(true);
+            exe.setUsuarioEmp(0);
         }
+        }
+    }
             }
-        }
         }
     
     }
@@ -66,21 +91,24 @@ public class Biblioteca
     
       for (Livro liv : livros) {
             if(liv.getCodigo()==id_livro){
-                if(liv.getDisponibilidade()==true){
-            liv.setDisponibilidade(false);
-            liv.setUsuarioEmp(id_usuario);
+                ArrayList<Exemplar> exemp = liv.getExemplares();
+                for(Exemplar exe: exemp){
+                if(exe.getDisponibilidade()==false){
+          exe.AdicionarUsuarioNaReserva(id_usuario);
         }
+    }
             }
         }
     
     
     }
     public void assinarLivro(int id_professor, int id_livro){}
+    
     public void consultarLivro(int id_livro){
        for (Livro liv : livros) {
             if(liv.getCodigo()==id_livro){
             System.out.println(liv.getTitulo() + " "+ liv.getEditora() + " " 
-            + liv.getAutores()+ " " + liv.getEdicao() +" " + liv.getano_de_publicacao());
+            + liv.getAutores()+ " " + liv.getEdicao() +" " + liv.getAnoDePublicacao());
             
             }
         }

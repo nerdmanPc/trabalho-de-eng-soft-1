@@ -15,9 +15,17 @@ public class Sistema
         entrada = new Scanner(System.in);
         comandos = new HashMap<String, Comando>();
         
-        /** Inicializa comandos **/
+        /** Inicializa comandos: sai, emp, dev, res, obs, liv, usu, ntf**/
+        comandos.put("sai", new ComandoSair());
         comandos.put("emp", new ComandoFazerEmprestimo());
         comandos.put("dev", new ComandoDevolverLivro());
+        comandos.put("res", new ComandoReservarLivro());
+        comandos.put("obs", new ComandoAssinarLivro());
+        comandos.put("liv", new ComandoConsultarLivro());
+        comandos.put("usu", new ComandoConsultarUsuario());
+        comandos.put("ntf", new ComandoConsultarAssinatura());
+        
+        
         /** ... **/
     } 
     

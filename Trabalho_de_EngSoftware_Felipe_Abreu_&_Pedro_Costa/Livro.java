@@ -8,6 +8,7 @@ public class Livro extends Subject
     private String[] autores;
     private int edicao;
     private int ano_de_publicacao;
+    private int numexemplares;
     private ArrayList<Exemplar> exemplares;
     
     //private int codigoexemplar;
@@ -22,14 +23,23 @@ public class Livro extends Subject
        this.edicao = edicao;
        this.ano_de_publicacao = ano_de_publicacao;
        this.exemplares = new ArrayList<Exemplar>();
+       this.numexemplares=0;
+       novoExemplar();
     }
     
-    public void novoExemplar(int codigo){
-        exemplares.add(new Exemplar(codigo));
+    public void novoExemplar(){
+        this.numexemplares++;
+        exemplares.add(new Exemplar(numexemplares));
+        
     }
     
     public int getCodigo(){
         return this.codigo;
+    }
+    
+    
+    public int getNumexemplares(){
+        return this.numexemplares;
     }
     
     public int getEdicao(){
@@ -52,13 +62,10 @@ public class Livro extends Subject
         return this.autores;
     }
     
+     public ArrayList<Exemplar> getExemplares(){
+        return this.exemplares;
+    }
     
-    public void setCodigo(int codigo){this.codigo=codigo;}
-    public void setEdicao(int edicao){this.edicao=edicao;}
-    public void setAnoDePublicacao(int ano){this.ano_de_publicacao=ano;}
-    public void setTitulo(String titulo){this.titulo=titulo;}
-    public void setgetEditora(String editora){this.editora=editora;}
-    public void setAutores(String[] autores){this.autores=autores;}
     
     
     

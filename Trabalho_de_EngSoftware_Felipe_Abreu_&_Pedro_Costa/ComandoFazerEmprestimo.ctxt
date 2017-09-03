@@ -1,5 +1,5 @@
 #BlueJ class context
 comment0.target=ComandoFazerEmprestimo
-comment1.params=argumentos
-comment1.target=void\ executar(int[])
+comment1.params=
+comment1.target=void\ executar()
 numComments=2

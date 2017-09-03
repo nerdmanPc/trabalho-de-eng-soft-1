@@ -12,8 +12,8 @@ public abstract class Usuario
     {
        this.codigo = codigo;
        this.nome = nome;
-       //this.reservas = new HashMap<Livro, Reserva>();
-      // this.emprestimos = new HashMap<Livro, Emprestimo>();
+       this.reservas = new HashMap<Livro, Reserva>();
+       this.emprestimos = new HashMap<Livro, Emprestimo>();
     }
     
     

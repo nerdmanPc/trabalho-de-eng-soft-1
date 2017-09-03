@@ -3,11 +3,9 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 
-<<<<<<< HEAD
 //Receiver
-=======
 //abc
->>>>>>> f62c9350da7ce78a1561b9eca9b5aa821de05dfd
+
 
 public class Biblioteca
 {
@@ -49,8 +47,8 @@ public class Biblioteca
     
     }
     
-        public void novoUsuario(int codigo, String nome,int diasdeemprestimo, int maximodelivros){
-        Usuario usr = new Usuario(codigo,nome,diasdeemprestimo,maximodelivros);
+        public void novoUsuario(int codigo, String nome){
+        Usuario usr = new Usuario(codigo,nome); //Achar uma solução pra novos usuarios (nao compila)
         usuarios.add(usr);
     
     }

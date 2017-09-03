@@ -1,31 +1,42 @@
-public class Usuario
+import java.util.HashMap;
+
+public abstract class Usuario
 {
     private int codigo;
     private String nome;
-    private EmprestimoBehavior bahavior;
-
-    public Usuario(int codigo, String nome,int diasdeemprestimo, int maximodelivros)
+    private HashMap<Livro, Reserva> reservas;
+    private HashMap<Livro, Emprestimo> emprestimos;
+    //private EmprestimoBehavior behavior;
+    
+    public Usuario(int codigo, String nome)
     {
-       this.codigo=codigo;
-       this.nome=nome;
-       this.diasdeemprestimo=diasdeemprestimo;
-       this.maximodelivros=maximodelivros;
+       this.codigo = codigo;
+       this.nome = nome;
+       this.reservas = new HashMap<Livro, Reserva>();
+       this.emprestimos = new HashMap<Livro, Emprestimo>();
     }
-
-  
+    
+    /**  **/
+    public abstract void fazerEmprestimo(Livro livro);
+    
+    public void registrarDevolucao(Livro livro){
+        emprestimos.remove(livro);
+    }
+    
+    public void registrarReserva(Reserva reserva){
+        reservas.put(reserva.getLivro(),reserva);
+    }
+    
+    //override
+    public String toString(){
+        /** Implementar o método de consulta aqui. **/
+    }
+    
     public void setCodigo(int in){this.codigo=in;}
     
     public void setNome(String str){this.nome=nome;}
     
-    public void setDiasdeemprestimo(int in){this.diasdeemprestimo=in;}
-    
-    public void setMaximodelivros(int in){this.maximodelivros=in;}
-    
     public int getCodigo(){return this.codigo;}
     
     public String getNome(){return this.nome;}
-    
-    public int getDiasdeemprestimo(){return this.diasdeemprestimo;}
-    
-    public int getMaximodelivros(){return this.maximodelivros;}
 }

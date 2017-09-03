@@ -1,10 +1,7 @@
-<<<<<<< HEAD
 #BlueJ class context
 comment0.target=Exemplar
 comment1.params=numero
 comment1.target=Exemplar(int)
-comment10.params=
-comment10.target=int\ getUsuarioEmp()
 comment2.params=sn
 comment2.target=void\ setDisponibilidade(boolean)
 comment3.params=
@@ -12,38 +9,8 @@ comment3.target=boolean\ getDisponibilidade()
 comment4.params=
 comment4.target=int\ getNumero()
 comment5.params=user
-comment5.target=void\ AdicionarUsuarioNaReserva(int)
+comment5.target=void\ setUsuarioEmp(int)
+comment5.text=\ \r\n\ \ \ \ \r\n\ \ \ \ \ \ \ public\ void\ AdicionarUsuarioNaReserva(int\ user){\r\n\ \ \ \ \r\n\ \ \ this.usuarios_na_reserva.add(user);\r\n\ \ \ \ \r\n\ \ \ \ }\r\n\ \ \ \ \r\n\ \ \ \ \ \ \ \ \ public\ int\ getTemUsuarioNaReserva(){\r\n\ \ \ \ \r\nreturn\ this.usuarios_na_reserva.get(0);\r\n\ \ \ \ \r\n\ \ \ \ }\r\n\ \ \ \ \r\n\ \ \ \ \r\n\ \ \ \ public\ void\ RemoveUserDaReserva()\ {\r\n\ \ \ \ this.usuarios_na_reserva.remove(0);\r\n\ \ }\r\n\ \ \ \ \r\n\ \ \ \ \r\n\ \ \ \ \ public\ boolean\ VerSeTaVazia()\ {\r\n\ \ \ \ return\ this.usuarios_na_reserva.size()\ \=\=\ 0;\r\n\ \ }\r\n\ \ \ \ \r\n\r\n\r\n\r\n\r\n\r\n\r\n
 comment6.params=
-comment6.target=int\ getTemUsuarioNaReserva()
-comment7.params=
-comment7.target=void\ RemoveUserDaReserva()
-comment8.params=
-comment8.target=boolean\ VerSeTaVazia()
-comment9.params=user
-comment9.target=void\ setUsuarioEmp(int)
-numComments=11
-=======
-#BlueJ class context
-comment0.target=Exemplar
-comment1.params=numero
-comment1.target=Exemplar(int)
-comment10.params=
-comment10.target=int\ getUsuarioEmp()
-comment2.params=sn
-comment2.target=void\ setDisponibilidade(boolean)
-comment3.params=
-comment3.target=boolean\ getDisponibilidade()
-comment4.params=
-comment4.target=int\ getNumero()
-comment5.params=user
-comment5.target=void\ AdicionarUsuarioNaReserva(int)
-comment6.params=
-comment6.target=int\ getTemUsuarioNaReserva()
-comment7.params=
-comment7.target=void\ RemoveUserDaReserva()
-comment8.params=
-comment8.target=boolean\ VerSeTaVazia()
-comment9.params=user
-comment9.target=void\ setUsuarioEmp(int)
-numComments=11
->>>>>>> f62c9350da7ce78a1561b9eca9b5aa821de05dfd
+comment6.target=int\ getUsuarioEmp()
+numComments=7

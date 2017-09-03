@@ -16,7 +16,7 @@ public abstract class Usuario
        this.emprestimos = new HashMap<Livro, Emprestimo>();
     }
     
-    /**  **/
+    /**  
     public abstract void fazerEmprestimo(Livro livro);
     
     public void registrarDevolucao(Livro livro){
@@ -26,10 +26,11 @@ public abstract class Usuario
     public void registrarReserva(Reserva reserva){
         reservas.put(reserva.getLivro(),reserva);
     }
-    
+    **/
     //override
     public String toString(){
         /** Implementar o método de consulta aqui. **/
+        return "";
     }
     
     public void setCodigo(int in){this.codigo=in;}

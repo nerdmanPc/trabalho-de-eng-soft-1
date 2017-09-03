@@ -37,8 +37,8 @@ public class Biblioteca
         if(liv.getCodigo()==codigo){
         liv.novoExemplar();
         sai=true;
-            }
-            
+    }
+           
         }
         if(sai==false){
         Livro liv = new Livro(codigo,titulo,editora,autores,edicao,ano_de_publicacao);
@@ -59,13 +59,13 @@ public class Biblioteca
                 ArrayList<Exemplar> exemp = liv.getExemplares();
                 for(Exemplar exe: exemp){
                 if(exe.getDisponibilidade()==true){
-                    if(exe.VerSeTaVazia()==true){
+                    if(liv.VerSeTaVazia()==true){
             exe.setDisponibilidade(false);
             exe.setUsuarioEmp(id_usuario);
-        }else if (exe.getTemUsuarioNaReserva()==id_usuario){
+        }else if (liv.getTemUsuarioNaReserva()==id_usuario){
         exe.setDisponibilidade(false);
             exe.setUsuarioEmp(id_usuario);
-            exe.RemoveUserDaReserva();
+            liv.RemoveUserDaReserva();
         }
         }
     }
@@ -96,7 +96,7 @@ public class Biblioteca
                 ArrayList<Exemplar> exemp = liv.getExemplares();
                 for(Exemplar exe: exemp){
                 if(exe.getDisponibilidade()==false){
-          exe.AdicionarUsuarioNaReserva(id_usuario);
+          liv.AdicionarUsuarioNaReserva(id_usuario);
         }
     }
             }

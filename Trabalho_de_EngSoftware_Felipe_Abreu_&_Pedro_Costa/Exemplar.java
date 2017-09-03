@@ -7,7 +7,7 @@ public class Exemplar
     private boolean disponivel;
     private Emprestimo emprestimo_corrente;
     private int Usuario_que_pegou_o_exemplar;
-    private List<Integer> usuarios_na_reserva = new LinkedList<Integer>();
+
         
     
     
@@ -37,6 +37,10 @@ public class Exemplar
     
     }
     
+    
+    
+    /* 
+    
        public void AdicionarUsuarioNaReserva(int user){
     
    this.usuarios_na_reserva.add(user);
@@ -59,6 +63,13 @@ return this.usuarios_na_reserva.get(0);
     return this.usuarios_na_reserva.size() == 0;
   }
     
+
+
+
+
+
+
+    */
     
     
        public void setUsuarioEmp(int user){
@@ -66,7 +77,7 @@ return this.usuarios_na_reserva.get(0);
     this.Usuario_que_pegou_o_exemplar= user;
     
     }
-    
+
     
         public int getUsuarioEmp(){
     

@@ -1,4 +1,7 @@
 import java.util.ArrayList;
+import java.util.List;
+import java.util.LinkedList;
+
 
 public class Livro extends Subject
 {
@@ -10,7 +13,7 @@ public class Livro extends Subject
     private int ano_de_publicacao;
     private int numexemplares;
     private ArrayList<Exemplar> exemplares;
-    
+    private List<Integer> usuarios_na_reserva = new LinkedList<Integer>();
     //private int codigoexemplar;
     //private boolean disponibilidade;
     //private int usuario_que_pegou_o_livro;
@@ -65,6 +68,59 @@ public class Livro extends Subject
      public ArrayList<Exemplar> getExemplares(){
         return this.exemplares;
     }
+    
+    
+    
+    
+    
+    
+     public void AdicionarUsuarioNaReserva(int user){
+    
+   this.usuarios_na_reserva.add(user);
+    
+    }
+    
+         public int getTemUsuarioNaReserva(){
+    
+return this.usuarios_na_reserva.get(0);
+    
+    }
+    
+    
+    public void RemoveUserDaReserva() {
+    this.usuarios_na_reserva.remove(0);
+  }
+    
+    
+     public boolean VerSeTaVazia() {
+    return this.usuarios_na_reserva.size() == 0;
+  }
+    
+
+
+
+
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     

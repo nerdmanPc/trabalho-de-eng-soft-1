@@ -12,11 +12,11 @@ public abstract class Usuario
     {
        this.codigo = codigo;
        this.nome = nome;
-       this.reservas = new HashMap<Livro, Reserva>();
-       this.emprestimos = new HashMap<Livro, Emprestimo>();
+       //this.reservas = new HashMap<Livro, Reserva>();
+      // this.emprestimos = new HashMap<Livro, Emprestimo>();
     }
     
-    /**  
+    
     public abstract void fazerEmprestimo(Livro livro);
     
     public void registrarDevolucao(Livro livro){
@@ -26,7 +26,7 @@ public abstract class Usuario
     public void registrarReserva(Reserva reserva){
         reservas.put(reserva.getLivro(),reserva);
     }
-    **/
+    
     //override
     public String toString(){
         /** Implementar o método de consulta aqui. **/

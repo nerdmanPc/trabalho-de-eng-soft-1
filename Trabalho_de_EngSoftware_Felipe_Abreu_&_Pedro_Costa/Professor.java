@@ -1,28 +1,18 @@
+import java.util.ArrayList;
 
-/**
- * Escreva a descrição da classe AlunoGrad aqui.
- * 
- * @author (seu nome) 
- * @version (número de versão ou data)
- */
-public class Professor implements Observer
+public class Professor implements Usuario,Observer
 {
     // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
     private int codigo;
     private String nome;
-    private int diasdeemprestimo;
-    private int maximodelivros;
     private int numero_de_notificacoes;
-
-    /**
-     * COnstrutor para objetos da classe AlunoGrad
-     */
-    public Professor(int codigo, String nome,int diasdeemprestimo, int maximodelivros)
+    private ArrayList<String> emprestimos;
+    private ArrayList<String> reservas;
+ 
+    public Professor(int codigo, String nome)
     {
      this.codigo=codigo;
        this.nome=nome;
-       this.diasdeemprestimo=diasdeemprestimo;
-       this.maximodelivros=maximodelivros;
        this.numero_de_notificacoes = 0;
     }
     
@@ -30,6 +20,35 @@ public class Professor implements Observer
         this.numero_de_notificacoes++;
     }
 
+    
+     @Override
+   
+   
+    public String getNome(){return this.nome;}
+    public int getCodigo(){return this.codigo;}
+    
+   public int tempodeemprestimo() {
+    
+    return 4;
+    
+    
+    }
+   
+   
+   public int limitedeemprestimosemaberto(){
+    Integer myInf = Integer.MAX_VALUE;
+    return myInf;
+    
+    
+    }
+    
+   
+    
+      
+    
+    
+    /**
+    
     public void setCodigo(int in){this.codigo=in;}
     public void setNome(String str){this.nome=nome;}
     public void setDiasdeemprestimo(int in){this.diasdeemprestimo=in;}
@@ -38,4 +57,8 @@ public class Professor implements Observer
     public String getNome(){return this.nome;}
     public int getDiasdeemprestimo(){return this.diasdeemprestimo;}
     public int getMaximodelivros(){return this.maximodelivros;}
+    
+    
+    
+    **/
 }

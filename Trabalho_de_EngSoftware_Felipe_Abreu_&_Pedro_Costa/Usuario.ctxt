@@ -1,16 +1,11 @@
 #BlueJ class context
 comment0.target=Usuario
-comment1.params=codigo\ nome
-comment1.target=Usuario(int,\ java.lang.String)
+comment1.params=
+comment1.target=int\ tempodeemprestimo()
 comment2.params=
-comment2.target=java.lang.String\ toString()
-comment2.text=\ \ \r\n\ \ \ \ public\ abstract\ void\ fazerEmprestimo(Livro\ livro);\r\n\ \ \ \ \r\n\ \ \ \ public\ void\ registrarDevolucao(Livro\ livro){\r\n\ \ \ \ \ \ \ \ emprestimos.remove(livro);\r\n\ \ \ \ }\r\n\ \ \ \ \r\n\ \ \ \ public\ void\ registrarReserva(Reserva\ reserva){\r\n\ \ \ \ \ \ \ \ reservas.put(reserva.getLivro(),reserva);\r\n\ \ \ \ }\r\n
-comment3.params=in
-comment3.target=void\ setCodigo(int)
-comment4.params=str
-comment4.target=void\ setNome(java.lang.String)
-comment5.params=
-comment5.target=int\ getCodigo()
-comment6.params=
-comment6.target=java.lang.String\ getNome()
-numComments=7
+comment2.target=int\ limitedeemprestimosemaberto()
+comment3.params=
+comment3.target=java.lang.String\ getNome()
+comment4.params=
+comment4.target=int\ getCodigo()
+numComments=5

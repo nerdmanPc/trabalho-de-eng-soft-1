@@ -42,10 +42,23 @@ public class Biblioteca
         }
     }
 
-    public void novoUsuario(int codigo, String nome){
-        Usuario usr = new Usuario(codigo,nome); //Achar uma solução pra novos usuarios (nao compila)
+    public void novoAlunoGrad(int codigo, String nome){
+        Usuario usr = new AlunoGrad(codigo,nome); //Achar uma solução pra novos usuarios (nao compila)
         usuarios.add(usr);
     }
+    
+       public void novoAlunoPos(int codigo, String nome){
+        Usuario usr = new AlunoPos(codigo,nome); //Achar uma solução pra novos usuarios (nao compila)
+        usuarios.add(usr);
+    }
+    
+    
+     public void Professor(int codigo, String nome){
+        Usuario usr = new AlunoPos(codigo,nome); //Achar uma solução pra novos usuarios (nao compila)
+        usuarios.add(usr);
+    }
+    
+    
 
     public void fazerEmprestimo(int id_usuario, int id_livro){
         for (Livro liv : livros) {
@@ -56,10 +69,30 @@ public class Biblioteca
                         if(liv.VerSeTaVazia()==true){
                             exe.setDisponibilidade(false);
                             exe.setUsuarioEmp(id_usuario);
+                            
+                           
+                            for(Usuario usu: usuarios){
+                            if(usu.getCodigo()==id_usuario){
+                            
+                            
+                            
+                            }
+                            
+                            
+                            
+                            }
+                            
+                            
+                            
                         }else if (liv.getTemUsuarioNaReserva()==id_usuario){
                             exe.setDisponibilidade(false);
                             exe.setUsuarioEmp(id_usuario);
                             liv.RemoveUserDaReserva();
+                            
+                            
+                            
+                            
+                            
                         }
                     }
                 }
@@ -89,12 +122,15 @@ public class Biblioteca
                 ArrayList<Exemplar> exemp = liv.getExemplares();
                 for(Exemplar exe: exemp){
                     if(exe.getDisponibilidade()==false){
-                        exe.AdicionarUsuarioNaReserva(id_usuario);
+                        liv.AdicionarUsuarioNaReserva(id_usuario);
                     }
-                }
-                if(exe.getDisponibilidade()==false){
+                     if(exe.getDisponibilidade()==false){
                     liv.AdicionarUsuarioNaReserva(id_usuario);
                 }
+                    
+                    
+                }
+               
             }
         }
     }
@@ -115,7 +151,7 @@ public class Biblioteca
     public void consultarUsuario(int id_usuario){
         for (Usuario user : usuarios) {
             if(user.getCodigo()==id_usuario){
-                System.out.println(user.getNome() + " "+ user.getCodigo() + " " + user.getDiasdeemprestimo());
+                System.out.println(user.getNome() + " "+ user.getCodigo() + " " + user.tempodeemprestimo());
             }
         }
 

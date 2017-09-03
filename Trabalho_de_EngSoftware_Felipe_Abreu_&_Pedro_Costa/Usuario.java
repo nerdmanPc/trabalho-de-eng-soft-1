@@ -1,13 +1,29 @@
-import java.util.HashMap;
-import java.lang.StringBuilder;
+//import java.util.HashMap;
+//import java.lang.StringBuilder;
 
-public abstract class Usuario
+
+public interface Usuario
 {
-    private int codigo;
+  
+   
+    
+    
+   int tempodeemprestimo();
+    
+   int limitedeemprestimosemaberto();
+    
+    String getNome();
+    int getCodigo();
+    
+    
+    
+   /** private int codigo;
     private String nome;
     private HashMap<Livro,Reserva> reservas;
     private HashMap<Livro,Emprestimo> emprestimos_correntes;
     private HashMap<Livro,Emprestimo> emprestimos_historico;
+    private int tempodeemprestimo;
+    private int limitesdeemprestimosemaberto;
     //private EmprestimoBehavior behavior;
     
     public Usuario(int codigo, String nome)
@@ -19,7 +35,7 @@ public abstract class Usuario
        this.emprestimos_historico = new HashMap<Livro, Emprestimo>();
     }
     
-    /** Cria empréstimo e manda o Livro tentar registrar **/
+ 
     public abstract void fazerEmprestimo(Livro livro);
     
     public void registrarDevolucao(Livro livro){
@@ -48,7 +64,7 @@ public abstract class Usuario
         for (Livro key: reservas.keySet()){
             retorno.append(reservas.get(key).consulta());
         }
-        /** Implementar o método de consulta aqui. **/
+      
         return retorno;
     }
     
@@ -59,4 +75,17 @@ public abstract class Usuario
     public int getCodigo(){return this.codigo;}
     
     public String getNome(){return this.nome;}
+    
+    public String getDiasdeemprestimo(){return this.diasdeemprestimo;}
+    
+    public String getQntsdiastempradevolver(){return this.qntsdiastempradevolver;}
+    
+    **/
+    
+    
+    
+   
+    
+    
+    
 }

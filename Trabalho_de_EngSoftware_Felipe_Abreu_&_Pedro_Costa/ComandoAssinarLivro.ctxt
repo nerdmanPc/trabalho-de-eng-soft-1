@@ -1,5 +1,13 @@
+<<<<<<< HEAD
 #BlueJ class context
 comment0.target=ComandoAssinarLivro
 comment1.params=
 comment1.target=void\ executar()
 numComments=2
+=======
+#BlueJ class context
+comment0.target=ComandoAssinarLivro
+comment1.params=
+comment1.target=void\ executar()
+numComments=2
+>>>>>>> f62c9350da7ce78a1561b9eca9b5aa821de05dfd

@@ -3,7 +3,11 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 
+<<<<<<< HEAD
+//Receiver
+=======
 //abc
+>>>>>>> f62c9350da7ce78a1561b9eca9b5aa821de05dfd
 
 public class Biblioteca
 {

@@ -1,5 +1,7 @@
 #BlueJ class context
 comment0.target=Reserva
-comment1.params=
-comment1.target=Reserva()
-numComments=2
+comment1.params=livro
+comment1.target=Reserva(Livro)
+comment2.params=
+comment2.target=java.lang.String\ consulta()
+numComments=3

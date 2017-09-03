@@ -95,14 +95,12 @@ public class Biblioteca
             if(liv.getCodigo()==id_livro){
                 ArrayList<Exemplar> exemp = liv.getExemplares();
                 for(Exemplar exe: exemp){
-                if(exe.getDisponibilidade()==false){
-          exe.AdicionarUsuarioNaReserva(id_usuario);
-        }
-    }
+                    if(exe.getDisponibilidade()==false){
+                        exe.AdicionarUsuarioNaReserva(id_usuario);
+                    }
+                }
             }
         }
-    
-    
     }
     public void assinarLivro(int id_professor, int id_livro){}
     

@@ -1,11 +1,13 @@
 import java.util.HashMap;
+import java.lang.StringBuilder;
 
 public abstract class Usuario
 {
     private int codigo;
     private String nome;
     private HashMap<Livro, Reserva> reservas;
-    private HashMap<Livro, Emprestimo> emprestimos;
+    private HashMap<Livro, Emprestimo> emprestimos_correntes;
+    private HashMap<Livro, Emprestimo> emprestimos_historico;
     //private EmprestimoBehavior behavior;
     
     public Usuario(int codigo, String nome)
@@ -13,14 +15,19 @@ public abstract class Usuario
        this.codigo = codigo;
        this.nome = nome;
        this.reservas = new HashMap<Livro, Reserva>();
-       this.emprestimos = new HashMap<Livro, Emprestimo>();
+       this.emprestimos_correntes = new HashMap<Livro, Emprestimo>();
+       this.emprestimos_historico = new HashMap<Livro, Emprestimo>();
     }
     
-    /**  **/
+    /** Cria empréstimo e manda o Livro tentar registrar **/
     public abstract void fazerEmprestimo(Livro livro);
     
     public void registrarDevolucao(Livro livro){
-        emprestimos.remove(livro);
+        emprestimos_historico.put(livro, emprestimos_correntes.remove(livro));
+    }
+    
+    public void removerReserva(Livro livro){
+        Reserva reserva = reservas.remove(livro);
     }
     
     public void registrarReserva(Reserva reserva){
@@ -29,6 +36,8 @@ public abstract class Usuario
     
     //override
     public String toString(){
+        StringBuilder retorno = new StringBuilder(nome + "\n");
+        
         /** Implementar o método de consulta aqui. **/
     }
     

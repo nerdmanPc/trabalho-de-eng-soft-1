@@ -62,11 +62,8 @@ public class Biblioteca
     
     /** Está acessando as classes modelo diretamente. Use Usuario.fazerEmprestimo(Livro) */
     public void fazerEmprestimo(int id_usuario, int id_livro){
-        
-        /**
-         * for {}
-           */
-        for (Livro liv : livros) {
+    	
+    	        for (Livro liv : livros) {
             if(liv.getCodigo()==id_livro){
                 ArrayList<Exemplar> exemp = liv.getExemplares();
                 for(Exemplar exe: exemp){

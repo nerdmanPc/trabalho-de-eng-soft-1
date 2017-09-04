@@ -11,6 +11,7 @@ dependency11.type=UsesDependency
 dependency12.from=ComandoReservarLivro
 dependency12.to=Sistema
 dependency12.type=UsesDependency
+<<<<<<< HEAD
 dependency13.from=ComandoReservarLivro
 dependency13.to=Biblioteca
 dependency13.type=UsesDependency
@@ -31,11 +32,34 @@ dependency18.to=ComandoAssinarLivro
 dependency18.type=UsesDependency
 dependency19.from=Sistema
 dependency19.to=ComandoConsultarLivro
+=======
+dependency13.from=ComandoAssinarLivro
+dependency13.to=Sistema
+dependency13.type=UsesDependency
+dependency14.from=ComandoAssinarLivro
+dependency14.to=Biblioteca
+dependency14.type=UsesDependency
+dependency15.from=ComandoReservarLivro
+dependency15.to=Sistema
+dependency15.type=UsesDependency
+dependency16.from=ComandoReservarLivro
+dependency16.to=Biblioteca
+dependency16.type=UsesDependency
+dependency17.from=ComandoConsultarLivro
+dependency17.to=Sistema
+dependency17.type=UsesDependency
+dependency18.from=ComandoConsultarLivro
+dependency18.to=Biblioteca
+dependency18.type=UsesDependency
+dependency19.from=Sistema
+dependency19.to=ComandoSair
+>>>>>>> 7c405673a23c88bd5873263b301a0eb9fafdbf85
 dependency19.type=UsesDependency
 dependency2.from=Subject
 dependency2.to=Observer
 dependency2.type=UsesDependency
 dependency20.from=Sistema
+<<<<<<< HEAD
 dependency20.to=ComandoConsultarUsuario
 dependency20.type=UsesDependency
 dependency21.from=Sistema
@@ -64,10 +88,41 @@ dependency28.to=Exemplar
 dependency28.type=UsesDependency
 dependency29.from=Biblioteca
 dependency29.to=Sistema
+=======
+dependency20.to=ComandoReservarLivro
+dependency20.type=UsesDependency
+dependency21.from=Sistema
+dependency21.to=ComandoAssinarLivro
+dependency21.type=UsesDependency
+dependency22.from=Sistema
+dependency22.to=ComandoConsultarLivro
+dependency22.type=UsesDependency
+dependency23.from=Sistema
+dependency23.to=ComandoConsultarUsuario
+dependency23.type=UsesDependency
+dependency24.from=Sistema
+dependency24.to=ComandoConsultarAssinatura
+dependency24.type=UsesDependency
+dependency25.from=ComandoConsultarAssinatura
+dependency25.to=Sistema
+dependency25.type=UsesDependency
+dependency26.from=ComandoConsultarAssinatura
+dependency26.to=Biblioteca
+dependency26.type=UsesDependency
+dependency27.from=ComandoConsultarUsuario
+dependency27.to=Sistema
+dependency27.type=UsesDependency
+dependency28.from=ComandoConsultarUsuario
+dependency28.to=Biblioteca
+dependency28.type=UsesDependency
+dependency29.from=Reserva
+dependency29.to=Livro
+>>>>>>> 7c405673a23c88bd5873263b301a0eb9fafdbf85
 dependency29.type=UsesDependency
 dependency3.from=ComandoDevolverLivro
 dependency3.to=Sistema
 dependency3.type=UsesDependency
+<<<<<<< HEAD
 dependency30.from=Reserva
 dependency30.to=Livro
 dependency30.type=UsesDependency
@@ -100,6 +155,22 @@ dependency39.to=Livro
 dependency39.type=UsesDependency
 dependency4.from=ComandoDevolverLivro
 dependency4.to=Biblioteca
+=======
+dependency30.from=Biblioteca
+dependency30.to=Usuario
+dependency30.type=UsesDependency
+dependency31.from=Biblioteca
+dependency31.to=Livro
+dependency31.type=UsesDependency
+dependency32.from=Biblioteca
+dependency32.to=Exemplar
+dependency32.type=UsesDependency
+dependency33.from=Biblioteca
+dependency33.to=Sistema
+dependency33.type=UsesDependency
+dependency4.from=Livro
+dependency4.to=Exemplar
+>>>>>>> 7c405673a23c88bd5873263b301a0eb9fafdbf85
 dependency4.type=UsesDependency
 dependency40.from=Exemplar
 dependency40.to=Emprestimo
@@ -140,6 +211,7 @@ dependency8.type=UsesDependency
 dependency9.from=Sistema
 dependency9.to=ComandoDevolverLivro
 dependency9.type=UsesDependency
+<<<<<<< HEAD
 editor.fx.0.height=1040
 editor.fx.0.width=1280
 editor.fx.0.x=1280
@@ -150,11 +222,27 @@ package.divider.horizontal=0.6
 package.divider.vertical=0.8489361702127659
 package.editor.height=778
 package.editor.width=1150
+=======
+editor.fx.0.height=1066
+editor.fx.0.width=1936
+editor.fx.0.x=-8
+editor.fx.0.y=-8
+objectbench.height=137
+objectbench.width=1240
+package.divider.horizontal=0.6
+package.divider.vertical=0.8468085106382979
+package.editor.height=789
+package.editor.width=1131
+>>>>>>> 7c405673a23c88bd5873263b301a0eb9fafdbf85
 package.editor.x=0
 package.editor.y=0
 package.frame.height=1040
 package.frame.width=1280
+<<<<<<< HEAD
 package.numDependencies=47
+=======
+package.numDependencies=33
+>>>>>>> 7c405673a23c88bd5873263b301a0eb9fafdbf85
 package.numTargets=22
 package.showExtends=true
 package.showUses=true
@@ -195,7 +283,11 @@ target12.type=ClassTarget
 target12.typeParameters=
 target12.width=90
 target12.x=30
+<<<<<<< HEAD
 target12.y=340
+=======
+target12.y=170
+>>>>>>> 7c405673a23c88bd5873263b301a0eb9fafdbf85
 target13.height=50
 target13.name=Emprestimo
 target13.showInterface=false
@@ -210,8 +302,13 @@ target14.showInterface=false
 target14.type=ClassTarget
 target14.typeParameters=
 target14.width=170
+<<<<<<< HEAD
 target14.x=930
 target14.y=600
+=======
+target14.x=10
+target14.y=280
+>>>>>>> 7c405673a23c88bd5873263b301a0eb9fafdbf85
 target15.height=50
 target15.name=ComandoFazerEmprestimo
 target15.showInterface=false
@@ -242,16 +339,26 @@ target18.showInterface=false
 target18.type=ClassTarget
 target18.typeParameters=
 target18.width=180
+<<<<<<< HEAD
 target18.x=970
 target18.y=410
+=======
+target18.x=10
+target18.y=340
+>>>>>>> 7c405673a23c88bd5873263b301a0eb9fafdbf85
 target19.height=50
 target19.name=ComandoConsultarUsuario
 target19.showInterface=false
 target19.type=ClassTarget
 target19.typeParameters=
 target19.width=190
+<<<<<<< HEAD
 target19.x=910
 target19.y=640
+=======
+target19.x=10
+target19.y=210
+>>>>>>> 7c405673a23c88bd5873263b301a0eb9fafdbf85
 target2.height=50
 target2.name=ComandoAssinarLivro
 target2.showInterface=false
@@ -303,7 +410,7 @@ target4.y=650
 target5.height=50
 target5.name=Usuario
 target5.showInterface=false
-target5.type=AbstractTarget
+target5.type=InterfaceTarget
 target5.typeParameters=
 target5.width=80
 target5.x=320
@@ -338,5 +445,10 @@ target9.showInterface=false
 target9.type=ClassTarget
 target9.typeParameters=
 target9.width=210
+<<<<<<< HEAD
 target9.x=970
 target9.y=540
+=======
+target9.x=10
+target9.y=400
+>>>>>>> 7c405673a23c88bd5873263b301a0eb9fafdbf85

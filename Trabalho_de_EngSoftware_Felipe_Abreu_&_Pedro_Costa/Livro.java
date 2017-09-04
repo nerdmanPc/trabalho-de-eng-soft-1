@@ -46,7 +46,7 @@ public class Livro extends Subject
             return false; // ARREMSSA EXCEÇÃO DE RESERVA JÁ FEITA
         }
         this.usuarios_na_reserva.add(usuario);
-        if (usuarios_na_reserva == 3){ //notifica apenas quando é feita e terceira reserva
+        if (usuarios_na_reserva.size() == 3){ //notifica apenas quando é feita e terceira reserva
             super.notificarObservers();
         }
         return true; //retorna de boa

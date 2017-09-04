@@ -1,4 +1,3 @@
-
 /**
  * Escreva a descrição da classe AlunoGrad aqui.
  * 
@@ -51,4 +50,23 @@ public class Professor extends Usuario implements Observer
     public int getDiasdeemprestimo(){return this.diasdeemprestimo;}
 
     public int getMaximodelivros(){return this.maximodelivros;}*/
+   
+    
+      
+    
+    
+    /**
+    
+    public void setCodigo(int in){this.codigo=in;}
+    public void setNome(String str){this.nome=nome;}
+    public void setDiasdeemprestimo(int in){this.diasdeemprestimo=in;}
+    public void setMaximodelivros(int in){this.maximodelivros=in;}
+    public int getCodigo(int in){return this.codigo;}
+    public String getNome(){return this.nome;}
+    public int getDiasdeemprestimo(){return this.diasdeemprestimo;}
+    public int getMaximodelivros(){return this.maximodelivros;}
+    
+    
+    
+    **/
 }

@@ -1,10 +1,3 @@
-
-/**
- * Escreva a descrição da classe AlunoGrad aqui.
- * 
- * @author (seu nome) 
- * @version (número de versão ou data)
- */
 public class AlunoGrad extends Usuario
 {
     //private int codigo;
@@ -21,6 +14,7 @@ public class AlunoGrad extends Usuario
         //this.maximodelivros=maximodelivros;
     }
     
+    @Override
     public void fazerEmprestimo(Livro livro){
         Emprestimo emprestimo = new Emprestimo(this, livro, 1);
         
@@ -61,4 +55,5 @@ public class AlunoGrad extends Usuario
     public int getMaximodelivros(){
         return this.maximodelivros;
     }*/
+
 }

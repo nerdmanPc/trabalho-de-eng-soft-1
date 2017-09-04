@@ -4,12 +4,14 @@ import java.lang.StringBuilder;
 import java.util.GregorianCalendar;
 
 public abstract class Usuario
-{
+{   
     private int codigo;
     private String nome;
     private HashMap<Livro,Reserva> reservas;
     private HashMap<Livro,Emprestimo> emprestimos_correntes;
     private HashMap<Livro,Emprestimo> emprestimos_historico;
+    //private int tempodeemprestimo;
+    //private int limitesdeemprestimosemaberto;
     //private EmprestimoBehavior behavior;
     
     public Usuario(int codigo, String nome)
@@ -20,8 +22,7 @@ public abstract class Usuario
        this.emprestimos_correntes = new HashMap<Livro, Emprestimo>();
        this.emprestimos_historico = new HashMap<Livro, Emprestimo>();
     }
-    
-    /** Cria empréstimo e manda o Livro tentar registrar **/
+ 
     public abstract void fazerEmprestimo(Livro livro);
     
     public boolean registrarDevolucao(Livro livro){
@@ -94,15 +95,19 @@ public abstract class Usuario
     public String getNome(){return this.nome;}
     
     /** Os dois métodos abaixo são só pra fazer os Hashmaps que usam esta classe como chave funcionarem bem */
-    //override
+    @Override
     public boolean equals(Object outro){
         if (!(outro instanceof Usuario)){
             return false;
         }
         return (this.codigo == ((Usuario)outro).codigo);
     }
-    //override
+    @Override
     public int hashCode(){
         return this.codigo;
     }
+    /*
+    public String getDiasdeemprestimo(){return this.diasdeemprestimo;}
+    
+    public String getQntsdiastempradevolver(){return this.qntsdiastempradevolver;}*/
 }

@@ -15,7 +15,6 @@ comment14.params=
 comment14.target=int\ hashCode()
 comment2.params=livro
 comment2.target=void\ fazerEmprestimo(Livro)
-comment2.text=Cria\ empr\u00E9stimo\ e\ manda\ o\ Livro\ tentar\ registrar\ *
 comment3.params=livro
 comment3.target=boolean\ registrarDevolucao(Livro)
 comment4.params=livro

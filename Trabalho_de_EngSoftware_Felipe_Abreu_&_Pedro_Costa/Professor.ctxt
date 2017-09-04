@@ -3,7 +3,6 @@ comment0.target=Professor
 comment0.text=\r\n\ Escreva\ a\ descri\u00E7\u00E3o\ da\ classe\ AlunoGrad\ aqui.\r\n\ \r\n\ @author\ (seu\ nome)\ \r\n\ @version\ (n\u00FAmero\ de\ vers\u00E3o\ ou\ data)\r\n
 comment1.params=codigo\ nome\ diasdeemprestimo\ maximodelivros
 comment1.target=Professor(int,\ java.lang.String,\ int,\ int)
-comment1.text=\r\n\ COnstrutor\ para\ objetos\ da\ classe\ AlunoGrad\r\n
 comment10.params=
 comment10.target=int\ getMaximodelivros()
 comment2.params=s

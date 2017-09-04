@@ -1,10 +1,11 @@
 #BlueJ class context
 comment0.target=Emprestimo
-comment0.text=\r\n\ Escreva\ a\ descri\u00E7\u00E3o\ da\ classe\ Emprestimo\ aqui.\r\n\ \r\n\ @author\ (seu\ nome)\ \r\n\ @version\ (n\u00FAmero\ de\ vers\u00E3o\ ou\ data)\r\n
-comment1.params=
-comment1.target=Emprestimo()
-comment1.text=\r\n\ COnstrutor\ para\ objetos\ da\ classe\ Emprestimo\r\n
-comment2.params=y
-comment2.target=int\ sampleMethod(int)
-comment2.text=\r\n\ Exemplo\ de\ m\u00E9todo\ -\ substitua\ este\ coment\u00E1rio\ pelo\ seu\ pr\u00F3prio\r\n\ \r\n\ @param\ \ y\ \ \ exemplo\ de\ um\ par\u00E2metro\ de\ m\u00E9todo\r\n\ @return\ \ \ \ \ a\ soma\ de\ x\ com\ y\ \r\n
-numComments=3
+comment1.params=usuario\ livro\ dias_de_emprestimo
+comment1.target=Emprestimo(Usuario,\ Livro,\ int)
+comment2.params=
+comment2.target=Usuario\ getUsuario()
+comment3.params=hoje
+comment3.target=boolean\ expirou(java.util.GregorianCalendar)
+comment4.params=
+comment4.target=java.lang.String\ consultaPorUsuario()
+numComments=5

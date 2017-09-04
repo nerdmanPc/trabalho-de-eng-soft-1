@@ -1,33 +1,34 @@
+import java.util.GregorianCalendar;
+import java.text.SimpleDateFormat;
 
-/**
- * Escreva a descrição da classe Emprestimo aqui.
- * 
- * @author (seu nome) 
- * @version (número de versão ou data)
- */
 public class Emprestimo
 {
-    // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
-    private int x;
+    private Usuario usuario;
+    private Livro livro;
+    private GregorianCalendar data_aquisicao;
+    private GregorianCalendar data_devolucao;
+    
+    private static SimpleDateFormat date_format = new SimpleDateFormat("dd/MM/yyyy"); //formatador da data
 
-    /**
-     * COnstrutor para objetos da classe Emprestimo
-     */
-    public Emprestimo()
-    {
-        // inicializa variáveis de instância
-        x = 0;
+    public Emprestimo(Usuario usuario, Livro livro, int dias_de_emprestimo){
+        this.usuario = usuario;
+        this.livro = livro;
+        this.data_aquisicao = new GregorianCalendar();
+        this.data_devolucao = new GregorianCalendar();
+        this.data_devolucao.add(GregorianCalendar.DAY_OF_MONTH, dias_de_emprestimo);
+    }
+    
+    public Usuario getUsuario(){
+        return this.usuario;
+    }
+    
+    public boolean expirou(GregorianCalendar hoje){
+        return hoje.after(data_devolucao);
     }
 
-    /**
-     * Exemplo de método - substitua este comentário pelo seu próprio
-     * 
-     * @param  y   exemplo de um parâmetro de método
-     * @return     a soma de x com y 
-     */
-    public int sampleMethod(int y)
-    {
-        // ponha seu código aqui
-        return x + y;
+    public String consultaPorUsuario(){
+        return "Livro: " + livro.getTitulo() + 
+            "\nData do empréstimo: " + date_format.format(data_aquisicao) + 
+            "\nData de devolução: " + date_format.format(data_devolucao) + "\n\n";
     }
 }

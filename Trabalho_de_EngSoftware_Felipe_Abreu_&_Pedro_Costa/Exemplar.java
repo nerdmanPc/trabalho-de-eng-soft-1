@@ -1,37 +1,59 @@
 import java.util.List;
 import java.util.LinkedList;
+
 public class Exemplar
 {
     private int numero;
-    private boolean disponivel;
+    //private boolean disponivel;
     private Emprestimo emprestimo_corrente;
-    private int Usuario_que_pegou_o_exemplar;
+    //private int Usuario_que_pegou_o_exemplar;
 
     public Exemplar(int numero){
         this.numero = numero;
-        this.disponivel = true;
+        //this.disponivel = true;
         this.emprestimo_corrente = null;
     }
     
-    public void setDisponibilidade(boolean sn){
-        this.disponivel = sn;
+    public boolean emprestar(Emprestimo emprestimo){
+        if (emprestimo_corrente != null){
+            return false;
+        }
+        this.emprestimo_corrente = emprestimo;
+        return true;
     }
     
-    public boolean getDisponibilidade(){
-        return this.disponivel;
+    public Emprestimo devolver(){
+        Emprestimo retorno = emprestimo_corrente;
+        emprestimo_corrente = null;
+        return retorno;
+    }
+    
+    public Usuario getUsuario(){
+        if(this.emprestimo_corrente == null){
+            return null;
+        }
+        return this.emprestimo_corrente.getUsuario();
     }
     
     public int getNumero(){
         return this.numero;
     }
-
-    public void setUsuarioEmp(int user){
-        this.Usuario_que_pegou_o_exemplar= user;
-    }
     
-    public int getUsuarioEmp(){
-        return this.Usuario_que_pegou_o_exemplar;
-    }
+    /*
+    public boolean getDisponibilidade(){
+        return this.emprestimo_corrente == null;
+    }*/
+    
+    /*
+    public void setDisponibilidade(boolean sn){
+        if (sn) emprestimo_corrente = null;
+    }*/
+    
+    
+
+    //public void setUsuarioEmp(int user){}
+    
+    
 }
 
     

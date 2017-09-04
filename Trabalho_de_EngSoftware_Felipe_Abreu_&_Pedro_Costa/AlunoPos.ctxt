@@ -1,22 +1,8 @@
 #BlueJ class context
 comment0.target=AlunoPos
-<<<<<<< HEAD
 comment0.text=\r\n\ Escreva\ a\ descri\u00E7\u00E3o\ da\ classe\ AlunoGrad\ aqui.\r\n\ \r\n\ @author\ (seu\ nome)\ \r\n\ @version\ (n\u00FAmero\ de\ vers\u00E3o\ ou\ data)\r\n
 comment1.params=codigo\ nome
 comment1.target=AlunoPos(int,\ java.lang.String)
 comment2.params=livro
 comment2.target=void\ fazerEmprestimo(Livro)
 numComments=3
-=======
-comment1.params=codigo\ nome
-comment1.target=AlunoPos(int,\ java.lang.String)
-comment2.params=
-comment2.target=java.lang.String\ getNome()
-comment3.params=
-comment3.target=int\ getCodigo()
-comment4.params=
-comment4.target=int\ tempodeemprestimo()
-comment5.params=
-comment5.target=int\ limitedeemprestimosemaberto()
-numComments=6
->>>>>>> 7c405673a23c88bd5873263b301a0eb9fafdbf85

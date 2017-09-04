@@ -31,35 +31,35 @@ public class Livro extends Subject
         novoExemplar();
     }
     
-    public boolean registrarDevolução(Usuario usuario){
+    public void registrarDevolução(Usuario usuario) throws UsuarioNaoEstaComLivroEx{
         for (Exemplar exemplar: exemplares){
             if (exemplar.getUsuario() == usuario){
                 exemplar.devolver();
-                return true; // retorna de boa
+                return; // retorna de boa
             }
         }
-        return false; // ARREMESSA EXCEÇÃO DE USUARIO NAO ESTA COM LIVRO
+        throw new UsuarioNaoEstaComLivroEx(); 
     }
     
-    public boolean registrarReserva(Usuario usuario){
+    public void registrarReserva(Usuario usuario) throws ReservaJaFeitaEx{
         if (this.usuarios_na_reserva.indexOf(usuario) != -1){
-            return false; // ARREMSSA EXCEÇÃO DE RESERVA JÁ FEITA
+            throw new ReservaJaFeitaEx(); // ARREMSSA EXCEÇÃO DE RESERVA JÁ FEITA
         }
         this.usuarios_na_reserva.add(usuario);
         if (usuarios_na_reserva.size() == 3){ //notifica apenas quando é feita e terceira reserva
             super.notificarObservers();
         }
-        return true; //retorna de boa
+        return; //retorna de boa
     }
     
-    public boolean registrarEmprestimo(Emprestimo emprestimo){
+    public void registrarEmprestimo(Emprestimo emprestimo) throws SemExemplaresDisponiveisEx{
         for(Exemplar exemplar: exemplares){
             if(exemplar.emprestar(emprestimo)){
                 removerReserva(emprestimo.getUsuario());
-                return true; //retorna de boa
+                return; //retorna de boa
             }
         }
-        return false; //ARREMESSA EXCEÇÃO DE SEM EXEMPLARES
+        throw new SemExemplaresDisponiveisEx();
     }
     
     public void removerReserva(Usuario usuario){
@@ -115,15 +115,16 @@ public class Livro extends Subject
         return this.usuarios_na_reserva.size() == 0;
     }
   
-    /* Os dois métodos abaixo são só pra fazer os Hashmaps que usam esta classe como chave funcionarem bem */
-    //override
+    /** Os dois métodos abaixo são só pra fazer os Hashmaps que usam esta classe como chave funcionarem bem */
+    @Override
     public boolean equals(Object outro){
         if (!(outro instanceof Livro)){
             return false;
         }
         return (this.codigo == ((Livro)outro).codigo);
     }
-    //override
+    
+    @Override
     public int hashCode(){
         return this.codigo;
     }

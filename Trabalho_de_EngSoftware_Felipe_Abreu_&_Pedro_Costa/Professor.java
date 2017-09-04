@@ -18,10 +18,11 @@ public class Professor extends Usuario implements Observer
         this.numero_de_notificacoes = 0;
     }
     
-    public void fazerEmprestimo(Livro livro){
+    @Override
+    public void fazerEmprestimo(Livro livro) throws UsuarioInadimplenteEx, SemExemplaresDisponiveisEx{
         Emprestimo emprestimo = new Emprestimo(this, livro, 4);
         if(super.ehDevedor()){
-            return;  //ARREMESSAR EXCEÇÃO
+            throw new UsuarioInadimplenteEx();
         }
         livro.registrarEmprestimo(emprestimo);// ARREMESSAR EXCEÇÕES DE LIVRO
         super.removerReserva(livro);

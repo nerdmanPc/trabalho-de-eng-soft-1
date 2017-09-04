@@ -11,16 +11,20 @@ public class AlunoPos extends Usuario
         super(codigo, nome);
     }
     
-    public void fazerEmprestimo(Livro livro){
+    @Override
+    public void fazerEmprestimo(Livro livro) throws UsuarioInadimplenteEx, UsuarioPegouTodosEmprestimosEx, 
+        TodosExemplaresReservadosEx, SemExemplaresDisponiveisEx
+    {
         Emprestimo emprestimo = new Emprestimo(this, livro, 2);
+        
         if(super.ehDevedor()){
-            return;  //ARREMESSAR EXCEÇÃO
+            throw new UsuarioInadimplenteEx();
         }
         if (super.getNumeroEmprestimosCorrentes() >= 4){
-            return;  // ARREMESSAR EXCEÇÃO
+            throw new UsuarioPegouTodosEmprestimosEx();
         }
         if (livro.todosExemplaresReservados()){
-            return;  // ARREMESSAR EXCEÇÃO
+            throw new TodosExemplaresReservadosEx();
         }
         livro.registrarEmprestimo(emprestimo);// ARREMESSAR EXCEÇÕES DE LIVRO, SE NÃO ACHOU EXEMPLAR
         super.removerReserva(livro);

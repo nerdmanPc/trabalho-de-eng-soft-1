@@ -22,45 +22,29 @@ public abstract class Usuario
        this.emprestimos_correntes = new HashMap<Livro, Emprestimo>();
        this.emprestimos_historico = new HashMap<Livro, Emprestimo>();
     }
- 
-    public abstract void fazerEmprestimo(Livro livro);
     
-    public boolean registrarDevolucao(Livro livro){
+    /** Para fazer emprestimo, chamar apenas este método */
+    public abstract void fazerEmprestimo(Livro livro) throws UsuarioInadimplenteEx, UsuarioPegouTodosEmprestimosEx, 
+        TodosExemplaresReservadosEx, SemExemplaresDisponiveisEx;
+    
+    public void registrarDevolucao(Livro livro) throws UsuarioNaoEstaComLivroEx{
         Emprestimo encerrado = emprestimos_correntes.remove(livro);
         if (encerrado == null){
-            return false; // ARREMESSA EXCEÇÃO ESSE USUARIO NÃO ESTÁ COM ESSE LIVRO
+            throw new UsuarioNaoEstaComLivroEx();
         }
         emprestimos_historico.put(livro, encerrado);
-        return true; //retorna de boa
+        return; //retorna de boa
     }
     
-    public void removerReserva(Livro livro){
-        Reserva reserva = reservas.remove(livro);
-    }
-    
-    public boolean registrarReserva(Reserva reserva){
+    public void registrarReserva(Reserva reserva) throws ReservaJaFeitaEx, UsuarioNaoPodeReservarEx{
         if (reservas.containsValue(reserva)){
-            return false; //ARREMESSA EXCEÇÃO RESERVA JÁ FEITA
+            throw new ReservaJaFeitaEx();
         }
         if (reservas.size() >= 3){
-            return false;  //ARREMESSA EXCEÇÃO USUÁRIO NÃO PODE MAIS RESERVAR
+            throw new UsuarioNaoPodeReservarEx();
         }
         reservas.put(reserva.getLivro(),reserva);
-        return true; //retorna de boa
-    }
-    
-    public int getNumeroEmprestimosCorrentes(){
-        return this.emprestimos_correntes.size();
-    }
-    
-    public boolean ehDevedor(){
-        Set<Livro> key_set = emprestimos_correntes.keySet(); // Isso é só pra iterar no HashMap, msm
-        for (Livro key: key_set){
-            if (emprestimos_correntes.get(key).expirou(new GregorianCalendar())){
-                return false;
-            }
-        }
-        return true;
+        return; //retorna de boa
     }
     
     public String consulta(){
@@ -84,6 +68,24 @@ public abstract class Usuario
             retorno.append(reservas.get(key).consultaPorUsuario());
         }
         return retorno.toString();
+    }
+    
+    public void removerReserva(Livro livro){
+        Reserva reserva = reservas.remove(livro);
+    }
+    
+    public int getNumeroEmprestimosCorrentes(){
+        return this.emprestimos_correntes.size();
+    }
+    
+    public boolean ehDevedor(){
+        Set<Livro> key_set = emprestimos_correntes.keySet(); // Isso é só pra iterar no HashMap, msm
+        for (Livro key: key_set){
+            if (emprestimos_correntes.get(key).expirou(new GregorianCalendar())){
+                return false;
+            }
+        }
+        return true;
     }
     
     public void setCodigo(int in){this.codigo=in;}

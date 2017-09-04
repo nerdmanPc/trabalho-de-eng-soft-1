@@ -15,17 +15,19 @@ public class AlunoGrad extends Usuario
     }
     
     @Override
-    public void fazerEmprestimo(Livro livro){
+    public void fazerEmprestimo(Livro livro) throws UsuarioInadimplenteEx, UsuarioPegouTodosEmprestimosEx, 
+        TodosExemplaresReservadosEx, SemExemplaresDisponiveisEx
+    {
         Emprestimo emprestimo = new Emprestimo(this, livro, 1);
         
         if(super.ehDevedor()){
-            return;  //ARREMESSAR EXCEÇÃO
+            throw new UsuarioInadimplenteEx();
         }
         if (super.getNumeroEmprestimosCorrentes() >= 3){
-            return;  // ARREMESSAR EXCEÇÃO
+            throw new UsuarioPegouTodosEmprestimosEx();
         }
         if (livro.todosExemplaresReservados()){
-            return;  // ARREMESSAR EXCEÇÃO
+            throw new TodosExemplaresReservadosEx();
         }
         livro.registrarEmprestimo(emprestimo);// ARREMESSAR EXCEÇÕES DE LIVRO, SE NÃO ACHOU EXEMPLAR
         super.removerReserva(livro);

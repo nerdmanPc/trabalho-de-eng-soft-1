@@ -212,7 +212,8 @@ public class Biblioteca
     public void consultarAssinatura(int id_usuario){
         for (Usuario user : usuarios) {
             if(user.getCodigo()==id_usuario){
-
+            	 Professor professor = (Professor)user;
+            	 professor.consultaAssinatura();
             }
         }
     }

@@ -2,8 +2,6 @@ import java.io.*;
 import java.util.Scanner;
 import java.util.ArrayList;
 
-//Receiver
-//abc
 
 public class Biblioteca
 {
@@ -12,9 +10,13 @@ public class Biblioteca
     private ArrayList<Usuario> usuarios;
     private ArrayList<Livro> livros;
     
-    /** Inicializa os casos de teste aqui. Coloca pra ficar esperando comandos até sair*/
     public static void main(String[] args){
+    	
+    	while(true){
         Sistema.get().esperarComando();
+    	}
+        
+        
     }
 
     private Biblioteca(){
@@ -44,38 +46,44 @@ public class Biblioteca
     }
 
     public void novoAlunoGrad(int codigo, String nome){
-        Usuario usr = new AlunoGrad(codigo,nome); //Achar uma solução pra novos usuarios (nao compila)
+        Usuario usr = new AlunoGrad(codigo,nome); 
         usuarios.add(usr);
     }
     
        public void novoAlunoPos(int codigo, String nome){
-        Usuario usr = new AlunoPos(codigo,nome); //Achar uma solução pra novos usuarios (nao compila)
+        Usuario usr = new AlunoPos(codigo,nome);
         usuarios.add(usr);
     }
     
     
      public void Professor(int codigo, String nome){
-        Usuario usr = new AlunoPos(codigo,nome); //Achar uma solução pra novos usuarios (nao compila)
+        Usuario usr = new AlunoPos(codigo,nome); 
         usuarios.add(usr);
     }
     
     
-    /** Está acessando as classes modelo diretamente. Use Usuario.fazerEmprestimo(Livro) */
     public void fazerEmprestimo(int id_usuario, int id_livro){
     	
     	        for (Livro liv : livros) {
             if(liv.getCodigo()==id_livro){
-                ArrayList<Exemplar> exemp = liv.getExemplares();
-                for(Exemplar exe: exemp){
-                    if(exe.getDisponibilidade()==true){
-                        if(liv.VerSeTaVazia()==true){
-                            exe.setDisponibilidade(false);
-                            exe.setUsuarioEmp(id_usuario);
-                            
-                           
+
                             for(Usuario usu: usuarios){
                             if(usu.getCodigo()==id_usuario){
-                            
+                            	try {
+									usu.fazerEmprestimo(liv);
+								} catch (UsuarioInadimplenteEx e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								} catch (UsuarioPegouTodosEmprestimosEx e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								} catch (TodosExemplaresReservadosEx e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								} catch (SemExemplaresDisponiveisEx e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
                             
                             
                             }
@@ -83,65 +91,100 @@ public class Biblioteca
                             
                             
                             }
-                            
-                            
-                            
-                        }else if (liv.getTemUsuarioNaReserva()==id_usuario){
-                            exe.setDisponibilidade(false);
-                            exe.setUsuarioEmp(id_usuario);
-                            liv.RemoveUserDaReserva();
-                            
-                            
-                            
-                            
-                            
+      
                         }
-                    }
+                    
                 }
             }
-        }
-    }
+        
+    
 
-    /** Está acessando as classes modelo diretamente. Use Usuario.registrarDevolução(Livro) e Livro.registrarDevolução(Usuario)*/
+
     public void devolverLivro(int id_usuario, int id_livro){
         for (Livro liv : livros) {
             if(liv.getCodigo()==id_livro){
-                ArrayList<Exemplar> exemp = liv.getExemplares();
-                for(Exemplar exe: exemp){
-                    if(exe.getDisponibilidade()==false){
-                        if(exe.getUsuarioEmp()==id_usuario){
-                            exe.setDisponibilidade(true);
-                            exe.setUsuarioEmp(0);
+                            	 for (Usuario usr : usuarios)
+                            		 if(usr.getCodigo()==id_usuario) {
+                            			 try {
+											usr.registrarDevolucao(liv);
+										} catch (UsuarioNaoEstaComLivroEx e1) {
+											// TODO Auto-generated catch block
+											e1.printStackTrace();
+										}
+                        	try {
+								liv.registrarDevolucao(usr);
+							} catch (UsuarioNaoEstaComLivroEx e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
                         }
                     }
                 }
             }
-        }
-    }
+        
+    
 
-    /** Está acessando as classes modelo diretamente. Use Usuario.registrarReserva(Reserva) e Livro.registrarReserva(Usuario).
-     * É preciso criar a instância da Reserva aqui, também, antes de passar */
+    /** Esta acessando as classes modelo diretamente. Use Usuario.registrarReserva(Reserva) e Livro.registrarReserva(Usuario).
+     * Eh preciso criar a instancia da Reserva aqui, tambem, antes de passar */
     public void reservarLivro(int id_usuario, int id_livro){
+    
+    			
+    			
         for (Livro liv : livros) {
+        	
+        			
             if(liv.getCodigo()==id_livro){
-                ArrayList<Exemplar> exemp = liv.getExemplares();
-                for(Exemplar exe: exemp){
-                    if(exe.getDisponibilidade()==false){
-                        liv.AdicionarUsuarioNaReserva(id_usuario);
-                    }
-                     if(exe.getDisponibilidade()==false){
-                    liv.AdicionarUsuarioNaReserva(id_usuario);
+
+                    	for (Usuario usr : usuarios) {
+                    		if(usr.getCodigo()==id_usuario) {
+                    			Reserva res= new Reserva(liv);
+                    	try {
+							usr.registrarReserva(res);
+						} catch (ReservaJaFeitaEx e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						} catch (UsuarioNaoPodeReservarEx e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+                    	
+                    		}
+                    	}
+                    	 for (Usuario usr : usuarios) {
+                     		if(usr.getCodigo()==id_usuario)
+								try {
+									liv.registrarReserva(usr);
+								} catch (ReservaJaFeitaEx e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
+                    	 
+                    	 
+                    	 
+                    	 
+                    	 
                 }
                     
                     
-                }
-               
+                
+                
             }
         }
     }
-
+               
+            
+        
     /** Basta chamar livro.adicionarObserver(Professor) */
-    public void assinarLivro(int id_professor, int id_livro){}
+    public void assinarLivro(int id_professor, int id_livro){
+    	for (Livro liv : livros) {
+    	for (Usuario usr : usuarios) {
+    		if(usr.getCodigo()==id_professor)
+    			liv.registrarObserver((Professor) usr);
+    	}
+    	
+    	
+    	
+    }}
     
     /** Basta chamar livro.consulta() */
     public void consultarLivro(int id_livro){
@@ -159,7 +202,7 @@ public class Biblioteca
     public void consultarUsuario(int id_usuario){
         for (Usuario user : usuarios) {
             if(user.getCodigo()==id_usuario){
-                System.out.println(user.getNome() + " "+ user.getCodigo() + " " + user.tempodeemprestimo());
+                user.consulta();
             }
         }
 

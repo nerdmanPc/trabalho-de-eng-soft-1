@@ -11,9 +11,12 @@
 /ComandoReservarLivro.class
 /ComandoSair.class
 /Emprestimo.class
+<<<<<<< HEAD
 /EmprestimoBehavior.class
 /EmprestimoComum.class
 /EmprestimoPrioritario.class
+=======
+>>>>>>> cdff75d891dd8dbfcaa08f422a3ad29a76a0985c
 /Exemplar.class
 /Livro.class
 /Observer.class

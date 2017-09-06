@@ -39,6 +39,8 @@ public class Sistema
     public Scanner getEntrada(){
         return this.entrada;
     }
+    
+
         
     public void esperarComando(){
         System.out.println("Digite o comando:");
@@ -49,9 +51,8 @@ public class Sistema
         /*
         String line = "";
         String line2 ="";
-        //line = input.readString();
+        //line = entrada.readString();
         //System.out.println(line);
-        while(!line.equals("sai")){
             Scanner input = new Scanner(System.in);
             line= input.next();
             //input = new KeyboardReader();

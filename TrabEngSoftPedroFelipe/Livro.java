@@ -1,7 +1,5 @@
 import java.util.ArrayList;
-import java.util.List;
-import java.util.LinkedList;
-
+import java.util.HashMap;
 
 public class Livro extends Subject
 {
@@ -12,11 +10,8 @@ public class Livro extends Subject
     private int edicao;
     private int ano_de_publicacao;
     //private int numexemplares;
-    private ArrayList<Exemplar> exemplares;
-    private List<Usuario> usuarios_na_reserva;
-    //private int codigoexemplar;
-    //private boolean disponibilidade;
-    //private int usuario_que_pegou_o_livro;
+    private ArrayList <Exemplar> exemplares;
+    private HashMap<Usuario, Reserva> reservas;
 
     public Livro(int codigo,String titulo,String editora,String[] autores,int edicao, int ano_de_publicacao){
         this.codigo = codigo;
@@ -26,7 +21,7 @@ public class Livro extends Subject
         this.edicao = edicao;
         this.ano_de_publicacao = ano_de_publicacao;
         this.exemplares = new ArrayList<Exemplar>();
-        usuarios_na_reserva = new LinkedList<Usuario>();
+        reservas = new HashMap<Usuario, Reserva>();
         //this.numexemplares=0;
         novoExemplar();
     }
@@ -41,12 +36,12 @@ public class Livro extends Subject
         throw new UsuarioNaoEstaComLivroEx(); 
     }
     
-    public void registrarReserva(Usuario usuario) throws ReservaJaFeitaEx{
-        if (this.usuarios_na_reserva.indexOf(usuario) != -1){
-            throw new ReservaJaFeitaEx(); // ARREMSSA EXCEÃ‡ÃƒO DE RESERVA JÃ� FEITA
+    public void registrarReserva(Reserva reserva) throws ReservaJaFeitaEx{
+        if (this.reservas.containsKey (reserva.getUsuario()) ){
+            throw new ReservaJaFeitaEx(); 
         }
-        this.usuarios_na_reserva.add(usuario);
-        if (usuarios_na_reserva.size() == 3){ //notifica apenas quando Ã© feita e terceira reserva
+        this.reservas.put(reserva.getUsuario(), reserva);
+        if (reservas.size() > 2){ 
             super.notificarObservers();
         }
         return; //retorna de boa
@@ -63,22 +58,28 @@ public class Livro extends Subject
     }
     
     public void removerReserva(Usuario usuario){
-        for(Usuario reserva: usuarios_na_reserva){
-            if (usuario == reserva){
-                usuarios_na_reserva.remove(reserva);
-                return; // retorna de boa
-            }
-        }
+    	reservas.remove(usuario);
     }
     
     public boolean todosExemplaresReservados(){
-        return (usuarios_na_reserva.size() >= exemplares.size());
+        return (reservas.size() >= exemplares.size());
+    }
+    
+    public boolean usuarioTemReserva(Usuario usuario) {
+    	return reservas.containsKey(usuario);
     }
     
     public void novoExemplar(){
         exemplares.add(new Exemplar(exemplares.size() + 1));        
     }
     
+    public String getTitulo(){
+        return this.titulo;
+    }
+    
+    //implementar consulta
+    
+    /*
     public int getCodigo(){
         return this.codigo;
     }
@@ -95,9 +96,7 @@ public class Livro extends Subject
         return this.ano_de_publicacao;
     }
     
-    public String getTitulo(){
-        return this.titulo;
-    }
+    
     
     public String getEditora(){
         return this.editora;
@@ -114,7 +113,7 @@ public class Livro extends Subject
     public boolean VerSeTaVazia() {
         return this.usuarios_na_reserva.size() == 0;
     }
-  
+  */
     /** Os dois mÃ©todos abaixo sÃ£o sÃ³ pra fazer os Hashmaps que usam esta classe como chave funcionarem bem */
     @Override
     public boolean equals(Object outro){

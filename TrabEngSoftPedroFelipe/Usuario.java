@@ -3,29 +3,31 @@ import java.util.Set;
 import java.lang.StringBuilder;
 import java.util.GregorianCalendar;
 
-public abstract class Usuario
+public class Usuario
 {   
     private int codigo;
     private String nome;
+    private EmprestimoBehavior emprestador;
     private HashMap<Livro,Reserva> reservas;
     private HashMap<Livro,Emprestimo> emprestimos_correntes;
     private HashMap<Livro,Emprestimo> emprestimos_historico;
-    //private int tempodeemprestimo;
-    //private int limitesdeemprestimosemaberto;
-    //private EmprestimoBehavior behavior;
     
-    public Usuario(int codigo, String nome)
+    Usuario(int codigo, String nome, EmprestimoBehavior emprestador)
     {
        this.codigo = codigo;
        this.nome = nome;
+       this.emprestador = emprestador;
        this.reservas = new HashMap<Livro, Reserva>();
        this.emprestimos_correntes = new HashMap<Livro, Emprestimo>();
        this.emprestimos_historico = new HashMap<Livro, Emprestimo>();
     }
     
     /** Para fazer emprestimo, chamar apenas este método */
-    public abstract void fazerEmprestimo(Livro livro) throws UsuarioInadimplenteEx, UsuarioPegouTodosEmprestimosEx, 
-        TodosExemplaresReservadosEx, SemExemplaresDisponiveisEx;
+    public void fazerEmprestimo(Livro livro) throws UsuarioInadimplenteEx, 
+    	UsuarioPegouTodosEmprestimosEx, TodosExemplaresReservadosEx, SemExemplaresDisponiveisEx
+    {
+    	emprestador.fazerEmprestimo(this, livro);
+    }
     
     public void registrarDevolucao(Livro livro) throws UsuarioNaoEstaComLivroEx{
         Emprestimo encerrado = emprestimos_correntes.remove(livro);
@@ -50,13 +52,13 @@ public abstract class Usuario
     public String consulta(){
         StringBuilder retorno = new StringBuilder(nome + "\n ");
         
-        retorno.append("Empréstimos correntes:\n");
+        retorno.append("Emprestimos correntes:\n");
         
         for (Livro key: emprestimos_correntes.keySet()){
             retorno.append(emprestimos_correntes.get(key).consultaPorUsuario());
         }
         
-        retorno.append("Empréstimos passados:\n");
+        retorno.append("Emprestimos passados:\n");
         
         for (Livro key: emprestimos_historico.keySet()){
             retorno.append(emprestimos_historico.get(key).consultaPorUsuario());
@@ -88,13 +90,9 @@ public abstract class Usuario
         return true;
     }
     
-    public void setCodigo(int in){this.codigo=in;}
-    
-    public void setNome(String str){this.nome=nome;}
-    
-    public int getCodigo(){return this.codigo;}
-    
-    public String getNome(){return this.nome;}
+    public String getNome() {
+    	return this.nome;
+    }
     
     /** Os dois métodos abaixo são só pra fazer os Hashmaps que usam esta classe como chave funcionarem bem */
     @Override
@@ -108,8 +106,4 @@ public abstract class Usuario
     public int hashCode(){
         return this.codigo;
     }
-    /*
-    public String getDiasdeemprestimo(){return this.diasdeemprestimo;}
-    
-    public String getQntsdiastempradevolver(){return this.qntsdiastempradevolver;}*/
 }

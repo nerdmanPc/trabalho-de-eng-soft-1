@@ -25,6 +25,10 @@ public class Emprestimo
     public boolean expirou(GregorianCalendar hoje){
         return hoje.after(data_devolucao);
     }
+    
+    public void encerrar() {
+    	this.data_devolucao = new GregorianCalendar();
+    }
 
     public String consultaPorUsuario(){
         return "Livro: " + livro.getTitulo() + 

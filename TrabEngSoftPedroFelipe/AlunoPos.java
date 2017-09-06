@@ -1,16 +1,11 @@
-/**
- * Escreva a descrição da classe AlunoGrad aqui.
- * 
- * @author (seu nome) 
- * @version (número de versão ou data)
- */
 public class AlunoPos extends Usuario
 {
     public AlunoPos(int codigo, String nome)
     {
-        super(codigo, nome);
+        super(codigo, nome, new EmprestimoComum(4,2));
     }
     
+    /*
     @Override
     public void fazerEmprestimo(Livro livro) throws UsuarioInadimplenteEx, UsuarioPegouTodosEmprestimosEx, 
         TodosExemplaresReservadosEx, SemExemplaresDisponiveisEx
@@ -28,7 +23,7 @@ public class AlunoPos extends Usuario
         }
         livro.registrarEmprestimo(emprestimo);// ARREMESSAR EXCEÇÕES DE LIVRO, SE NÃO ACHOU EXEMPLAR
         super.removerReserva(livro);
-    }
+    }*/
     /*
     public void setCodigo(int in){this.codigo=in;}
     public void setNome(String str){this.nome=nome;}

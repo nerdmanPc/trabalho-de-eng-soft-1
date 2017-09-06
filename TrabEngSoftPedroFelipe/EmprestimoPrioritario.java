@@ -7,10 +7,13 @@ public class EmprestimoPrioritario implements EmprestimoBehavior {
 	}
 
 	@Override
-	public Emprestimo fazerEmprestimo(Usuario professor,Livro livro) throws UsuarioInadimplenteEx, SemExemplaresDisponiveisEx{
+	public Emprestimo fazerEmprestimo(Usuario professor, Livro livro) throws UsuarioInadimplenteEx, SemExemplaresDisponiveisEx, UsuarioJaEstaComLivroEx{
         Emprestimo emprestimo = new Emprestimo(professor, livro, NUMERO_DE_DIAS);
         if(professor.ehDevedor()){
             throw new UsuarioInadimplenteEx();
+        }
+        if (professor.estaComLivro(livro)) {
+        	throw new UsuarioJaEstaComLivroEx();
         }
         livro.registrarEmprestimo(emprestimo);
         professor.removerReserva(livro);

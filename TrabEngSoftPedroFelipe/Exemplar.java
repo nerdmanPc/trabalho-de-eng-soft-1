@@ -23,6 +23,14 @@ public class Exemplar
         return retorno;
     }
     
+    public String consulta() {
+    	if (emprestimo_corrente == null) {
+    		return numero + " - disponível\n";
+    	}else {
+    		return numero + " - emprestado:\n" + emprestimo_corrente.consultaPorLivro();
+    	}
+    }
+    
     public Usuario getUsuario(){
         if(this.emprestimo_corrente == null){
             return null;

@@ -11,12 +11,15 @@ public class EmprestimoComum implements EmprestimoBehavior {
 
 	@Override
     public Emprestimo fazerEmprestimo(Usuario aluno, Livro livro) throws UsuarioInadimplenteEx, UsuarioPegouTodosEmprestimosEx, 
-        TodosExemplaresReservadosEx, SemExemplaresDisponiveisEx
+        TodosExemplaresReservadosEx, SemExemplaresDisponiveisEx, UsuarioJaEstaComLivroEx
     {
         Emprestimo emprestimo = new Emprestimo(aluno, livro, NUMERO_DE_DIAS);
         
         if(aluno.ehDevedor()){
             throw new UsuarioInadimplenteEx();
+        }
+        if (aluno.estaComLivro(livro)) {
+        	throw new UsuarioJaEstaComLivroEx();
         }
         if (aluno.getNumeroEmprestimosCorrentes() >= NUMERO_DE_EMPRESTIMOS){
             throw new UsuarioPegouTodosEmprestimosEx();

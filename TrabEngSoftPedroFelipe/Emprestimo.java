@@ -32,7 +32,13 @@ public class Emprestimo
 
     public String consultaPorUsuario(){
         return "Livro: " + livro.getTitulo() + 
-            "\nData do emprÃ©stimo: " + date_format.format(data_aquisicao) + 
-            "\nData de devoluÃ§Ã£o: " + date_format.format(data_devolucao) + "\n\n";
+            "\nData do empréstimo: " + date_format.format(data_aquisicao) + 
+            "\nData de devolução: " + date_format.format(data_devolucao) + "\n\n";
+    }
+    
+    public String consultaPorLivro(){
+        return "Usuario: " + usuario.getNome() + 
+            "\nData do empréstimo: " + date_format.format(data_aquisicao) + 
+            "\nData de devolução: " + date_format.format(data_devolucao) + "\n\n";
     }
 }

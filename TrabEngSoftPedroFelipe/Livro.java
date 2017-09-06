@@ -9,7 +9,7 @@ public class Livro extends Subject
     private String[] autores;
     private int edicao;
     private int ano_de_publicacao;
-    //private int numexemplares;
+    
     private ArrayList <Exemplar> exemplares;
     private HashMap<Usuario, Reserva> reservas;
 
@@ -22,8 +22,6 @@ public class Livro extends Subject
         this.ano_de_publicacao = ano_de_publicacao;
         this.exemplares = new ArrayList<Exemplar>();
         reservas = new HashMap<Usuario, Reserva>();
-        //this.numexemplares=0;
-        novoExemplar();
     }
     
     public void registrarDevolucao(Usuario usuario) throws UsuarioNaoEstaComLivroEx{
@@ -61,6 +59,20 @@ public class Livro extends Subject
     	reservas.remove(usuario);
     }
     
+    public String consulta() {
+    	StringBuilder retorno = new StringBuilder("Título: " + titulo + "\n" + reservas.size() + " reservas:\n");
+    	
+    	retorno.append(reservas.size() + " reservas:\n");
+    	for(Usuario key: reservas.keySet()) {
+    		retorno.append(key.getNome() + "\n");
+    	}
+    	retorno.append("Exemplares:\n");
+    	for(Exemplar exemplar: exemplares) {
+    		retorno.append(exemplar.consulta());
+    	}
+    	return retorno.toString();
+    }
+    
     public boolean todosExemplaresReservados(){
         return (reservas.size() >= exemplares.size());
     }
@@ -69,55 +81,22 @@ public class Livro extends Subject
     	return reservas.containsKey(usuario);
     }
     
-    public void novoExemplar(){
-        exemplares.add(new Exemplar(exemplares.size() + 1));        
+    public void novoExemplar(int numero){
+        exemplares.add(new Exemplar(numero));        
     }
     
     public String getTitulo(){
         return this.titulo;
     }
     
-    //implementar consulta
-    
-    /*
-    public int getCodigo(){
-        return this.codigo;
-    }
-        
-    public int getNumexemplares(){
-        return this.exemplares.size();
+    public int getCodigo() {
+    	return this.codigo;
     }
     
-    public int getEdicao(){
-       return this.edicao;
-    }
-    
-    public int getAnoDePublicacao(){
-        return this.ano_de_publicacao;
-    }
-    
-    
-    
-    public String getEditora(){
-        return this.editora;
-    }
-    
-    public String[] getAutores(){
-        return this.autores;
-    }
-    
-    public void RemoveUserDaReserva(){
-        this.usuarios_na_reserva.remove(0);
-    }
-    
-    public boolean VerSeTaVazia() {
-        return this.usuarios_na_reserva.size() == 0;
-    }
-  */
-    /** Os dois mÃ©todos abaixo sÃ£o sÃ³ pra fazer os Hashmaps que usam esta classe como chave funcionarem bem */
+    /** Os dois métodos abaixo são só pra fazer os Hashmaps que usam esta classe como chave funcionarem bem */
     @Override
     public boolean equals(Object outro){
-        if (!(outro instanceof Livro)){
+        if ( !(outro instanceof Livro) ){
             return false;
         }
         return (this.codigo == ((Livro)outro).codigo);
@@ -127,14 +106,5 @@ public class Livro extends Subject
     public int hashCode(){
         return this.codigo;
     }
-    /*
-     public ArrayList<Exemplar> getExemplares(){
-        return this.exemplares;
-    }*/
-    
-    /*
-    public int getTemUsuarioNaReserva(){
-        return this.usuarios_na_reserva.get(0);
-    }*/
     
 }

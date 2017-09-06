@@ -22,9 +22,10 @@ public class Usuario
        this.emprestimos_historico = new HashMap<Livro, Emprestimo>();
     }
     
-    /** Para fazer emprestimo, chamar apenas este método */
-    public void fazerEmprestimo(Livro livro) throws UsuarioInadimplenteEx, 
-    	UsuarioPegouTodosEmprestimosEx, TodosExemplaresReservadosEx, SemExemplaresDisponiveisEx
+    /** Para fazer emprestimo, chamar apenas este método 
+     * @throws UsuarioJaEstaComLivroEx */
+    public void fazerEmprestimo(Livro livro) throws UsuarioInadimplenteEx, UsuarioPegouTodosEmprestimosEx, 
+    	TodosExemplaresReservadosEx, SemExemplaresDisponiveisEx, UsuarioJaEstaComLivroEx
     {
     	emprestador.fazerEmprestimo(this, livro);
     }
@@ -34,6 +35,7 @@ public class Usuario
         if (encerrado == null){
             throw new UsuarioNaoEstaComLivroEx();
         }
+        encerrado.encerrar();
         emprestimos_historico.put(livro, encerrado);
         return; //retorna de boa
     }
@@ -73,7 +75,7 @@ public class Usuario
     }
     
     public void removerReserva(Livro livro){
-        Reserva reserva = reservas.remove(livro);
+        reservas.remove(livro);
     }
     
     public int getNumeroEmprestimosCorrentes(){
@@ -90,8 +92,16 @@ public class Usuario
         return true;
     }
     
+    public boolean estaComLivro(Livro livro) {
+    	return emprestimos_correntes.containsKey(livro);
+    }
+    
     public String getNome() {
     	return this.nome;
+    }
+    
+    public int getCodigo() {
+    	return this.codigo;
     }
     
     /** Os dois métodos abaixo são só pra fazer os Hashmaps que usam esta classe como chave funcionarem bem */

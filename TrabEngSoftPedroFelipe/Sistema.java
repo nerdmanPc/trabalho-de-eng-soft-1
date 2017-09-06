@@ -40,7 +40,9 @@ public class Sistema
         return this.entrada;
     }
     
-
+    public void exibir(String mensagem) {
+    	System.out.println(mensagem);
+    }
         
     public void esperarComando(){
         System.out.println("Digite o comando:");
